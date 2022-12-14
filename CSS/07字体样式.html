@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07字体样式</title>
+    <style>
+        h1 {
+            color: black;
+            color: cornflowerblue;
+        /* 样式层叠，显示写在最下面的属性 */
+            font-family: 宋体, 楷体, sans-serif;
+        /* 如果用户电脑没有安装宋体，就按楷体显示；如果没有安装楷体，就按任意一种无衬线字体显示 */
+        }
+        h2 {
+            font: italic 700 27px 微软雅黑;
+        }
+        p {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        div {
+            font-style: italic;
+        }
+        span {
+            font-size: 20px;
+            font-family: 楷体;
+        }
+    </style>
+</head>
+<body>
+    <h1>样式层叠一级标题</h1>
+    <h2>连写属性二级标题</h2>
+    <p>24px加粗文本</p>
+    <div>16px倾斜文本</div>
+    <span>20px楷体文本</span>
+</body>
+</html>
