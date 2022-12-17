@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>31内边距</title>
+    <style>
+        div {
+            width: 100px;
+            height: 50px;
+            background-color: pink;
+            border: 5px solid cornflowerblue;
+            margin: 10px;
+        }
+        .p1 {
+            /* 四值：上 右 下 左 */
+            padding: 10px 20px 30px 40px;
+        }
+        .p2 {
+            /* 三值：上 左右 下 */
+            padding: 10px 20px 30px;
+        }
+        .p3 {
+            /* 二值：上下 左右 */
+            padding: 10px 20px;
+        }
+        .p4 {
+            /* 一值：四边 */
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="p1">四值内边距</div>
+    <div class="p2">三值内边距</div>
+    <div class="p3">二值内边距</div>
+    <div class="p4">一值内边距</div>
+</body>
+</html>
