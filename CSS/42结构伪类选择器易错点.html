@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>42结构伪类选择器易错点</title>
+    <style>
+        /* 选择第一个a标签 */
+        li:first-child a {
+            background-color: cadetblue;
+        }
+        /* 选择第三个li里的第二个a标签 */
+        li:nth-child(3) a:nth-child(2) {
+            background-color: cyan;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><a href="#">第1个a标签</a></li>
+        <li><a href="#">第2个a标签</a></li>
+        <li>
+            <a href="#">第3个li里第一个a标签</a>
+            <a href="#">第3个li里第二个a标签</a>
+            <a href="#">第3个li里第三个a标签</a>
+        </li>
+        <li><a href="#">第4个a标签</a></li>
+        <li><a href="#">第5个a标签</a></li>
+        <li><a href="#">第6个a标签</a></li>
+        <li><a href="#">第7个a标签</a></li>
+        <li><a href="#">第8个a标签</a></li>
+        <li><a href="#">第9个a标签</a></li>
+    </ul>
+</body>
+</html>
