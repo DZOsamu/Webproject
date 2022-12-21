@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>43伪元素</title>
+    <style>
+        .father {
+            width: 300px;
+            height: 200px;
+            background-color: pink;
+        }
+        .father::before {
+            content: 'before';
+            background-color: aqua;
+        }
+        .father::after {
+            content: 'after';
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="father">这是div标签</div>
+</body>
+</html>
