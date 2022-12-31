@@ -187,3 +187,46 @@ h1 {
     font-size: 14px;
     color: #00a4ff;
 }
+.box {
+    margin-top: 35px;
+}
+.box .title {
+    height: 40px;
+}
+.box .title h2 {
+    float: left;
+    font-size: 20px;
+    color: #494949;
+    font-weight: 400;
+}
+.box .title a {
+    float: right;
+    margin-right: 30px;
+    font-size: 12px;
+    color: #a5a5a5;
+}
+.box .content li {
+    float: left;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    width: 228px;
+    height: 270px;
+    background-color: #fff;
+}
+.box .content li:nth-child(5n) {
+    margin-right: 0;
+}
+.box .content li h3 {
+    padding: 20px;
+    font-size: 14px;
+    color: #050505;
+    font-weight: 400;
+}
+.box .content li p {
+    padding: 0 20px;
+    font-size: 12px;
+    color: #999;
+}
+.box .content li span {
+    color: #ff7c2d;
+}
