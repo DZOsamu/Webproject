@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+        }
+        .one {
+            position: absolute;
+            left: 20px;
+            top: 50px;
+
+            z-index: 1;
+
+            background-color: pink;
+        }
+        .two {
+            position: absolute;
+            left: 50px;
+            top: 100px;
+
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="one">one</div>
+    <div class="two">two</div>
+    <!-- 写在后面的会覆盖前面的 -->
+</body>
+</html>
