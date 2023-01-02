@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+/* 绝对定位过的盒子无法用margin: 0 auto;居中 */
+            position: absolute;
+            /* 水平居中 */
+            left: 50%;
+            /* margin-left: -150px; */
+            /* 垂直居中 */
+            top: 50%;
+            /* margin-top: -100px; */
+
+            transform: translate(-50%, -50%);
+            /* -50%，往左往上移自己宽高的一半 */
+
+            /* margin: 0 auto; */
+
+            width: 300px;
+            height: 200px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>
