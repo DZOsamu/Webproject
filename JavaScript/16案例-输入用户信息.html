@@ -5,13 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        span {
+            color: skyblue;
+        }
+    </style>
 </head>
 <body>
     
     <script>
         let name = prompt('请输入您的姓名：')
         let age = prompt('请输入您的年龄：')
-        document.write (`大家好，我叫${name}，今年${age}岁。`)
+        document.write (`大家好，我叫<span>${name}</span>，今年${age}岁。`)
     </script>
 </body>
 </html>
