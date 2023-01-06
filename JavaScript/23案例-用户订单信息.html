@@ -25,7 +25,7 @@
     </style>
 </head>
 <body>
-    <table>
+<!-- <table>
         <caption>
             <h2>订单付款确认页面</h2>
         </caption>
@@ -40,13 +40,40 @@
             <td>小米手机青春PLUS</td>
             <td>1999元</td>
             <td>3</td>
+            <td></td>
             <td>北京顺义黑马程序员</td>
         </tr>
-    </table>
+    </table> -->
     <script>
         let price = prompt('请输入商品价格：')
         let num = prompt('请输入商品数量：')
+        let total = price * num
         let address = prompt('请输入收货地址：')
+
+        // 渲染表格 填充数据（还没学）
+
+        // 反引号 支持换行
+        document.write(`
+        <table>
+            <caption>
+                <h2>订单付款确认页面</h2>
+            </caption>
+            <tr>
+                <th>商品名称</th>
+                <th>商品价格</th>
+                <th>商品数量</th>
+                <th>总价</th>
+                <th>收货地址</th>
+            </tr>
+            <tr>
+                <td>小米手机青春PLUS</td>
+                <td>${price}元</td>
+                <td>${num}</td>
+                <td>${total}元</td>
+                <td>${address}</td>
+            </tr>
+        </table>
+        `)
     </script>
 </body>
 </html>
