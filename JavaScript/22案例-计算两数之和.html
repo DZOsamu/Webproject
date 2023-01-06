@@ -8,9 +8,10 @@
 </head>
 <body>
     <script>
-        let num1 = prompt('请输入第一个数：')
-        let num2 = prompt('请输入第二个数：')
-        alert('计算的结果是：'+ (Number(num1) + Number(num2)))
+        //用+隐式转换成数字型
+        let num1 = +prompt('请输入第一个数：')
+        let num2 = +prompt('请输入第二个数：')
+        alert('计算的结果是：'+ (num1 + num2))
 </script>
 </body>
 </html>

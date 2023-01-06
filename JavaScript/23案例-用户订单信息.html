@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        table {
+            margin: 0 auto;
+            text-align: center;
+            border-collapse: collapse;
+        }
+        table th,td {
+            border: 1px solid #000;
+            padding: 15px;
+        }
+        table caption {
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <caption>
+            <h2>订单付款确认页面</h2>
+        </caption>
+        <tr>
+            <th>商品名称</th>
+            <th>商品价格</th>
+            <th>商品数量</th>
+            <th>总价</th>
+            <th>收货地址</th>
+        </tr>
+        <tr>
+            <td>小米手机青春PLUS</td>
+            <td>1999元</td>
+            <td>3</td>
+            <td>北京顺义黑马程序员</td>
+        </tr>
+    </table>
+    <script>
+        let price = prompt('请输入商品价格：')
+        let num = prompt('请输入商品数量：')
+        let address = prompt('请输入收货地址：')
+    </script>
+</body>
+</html>
