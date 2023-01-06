@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        console.log(Number('10'))
+        console.log(Number('10abc'))   //NaN
+
+        // parseInt转换成数字类型，只保留整数，没有四舍五入
+        console.log(parseInt('10.11'))
+        console.log(parseInt('10.99'))
+        // parseFloat转换成数字类型，保留小数
+        console.log(parseFloat('10.11'))
+        console.log(parseFloat('10.11abc'))
+        console.log(parseFloat('100px'))
+    </script>
+</body>
+</html>
