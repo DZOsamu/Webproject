@@ -14,9 +14,20 @@
         console.log(5 == 5)
         console.log(5 = '5')
         // 只比较数值，不管数据类型
-        console.log(5 == 'pink')
         console.log(5 === '5')
+        console.log(5 === 5)
         // 开发常用，数值和数据类型都要比较
+
+        console.log('pink' > 'red')
+        // 字符串比较ACSII 从第一个开始比较
+        console.log('pink' > 'pin')
+        // 前面的都一样，字母多的大
+
+        console.log(1 === NaN)
+        console.log(NaN === NaN)
+
+        console.log(0.1 + 0.2 == 0.3)
+        // 小数存在精度问题，结果有偏差
     </script>
 </body>
 </html>
