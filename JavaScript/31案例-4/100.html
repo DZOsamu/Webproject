@@ -9,6 +9,7 @@
 <body>
     <script>
         let num = prompt("请输入一个数：")
+        num = num || 0   // 什么都没输入时，控制台是' '，当做假
         console.log(num % 4 == 0 && num % 100 !== 0)
     </script>
 </body>
