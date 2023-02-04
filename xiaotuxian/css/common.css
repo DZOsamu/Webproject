@@ -1,0 +1,80 @@
+/* 各个页面相同的样式表：头、尾部 */
+
+/* 版心 */
+.wrapper {
+    width: 1240px;
+    margin: 0 auto;
+}
+/* 快捷导航 */
+.shortcut {
+    height: 52px;
+    background-color: #333;
+}
+.shortcut .wrapper ul {
+    float: right;
+}
+.shortcut .wrapper li {
+    float: left;
+    line-height: 52px;
+}
+.shortcut .wrapper a {
+    padding: 0 16px;
+    border-right: 1px solid #666;
+    font-size: 14px;
+    color: #dcdcdc;
+}
+.shortcut .wrapper a span {
+    display: inline-block;
+    margin-right: 8px;
+    width: 16px;
+    height: 22px;
+    background-image: url(../精灵图.jpg);
+    background-position: -18px -30px;
+    vertical-align: -10%;
+}
+/* 清除a的边框线：最后一个li里面的a */
+.shortcut .wrapper li:last-child a {
+    border: 0;
+}
+
+/* 头部 */
+.header {
+    margin: 30px 0;
+    height: 70px;
+}
+.logo {
+    float: left;
+    width: 207px;
+    height: 70px;
+}
+/* logo 搜索引擎化做法 */
+.logo h1 {
+    width: 207px;
+    height: 70px;
+}
+.logo h1 a {
+    display: block;
+    width: 207px;
+    height: 70px;
+    background-image: url(../images/logo.png);
+    background-size: contain;
+    /* 字号0：让h1里的字看不见 */
+    font-size: 0;
+}
+.nav {
+    float: left;
+    margin-left: 40px;
+    height: 70px;
+}
+.search {
+    float: left;
+    margin-left: 34px;
+    width: 172px;
+    height: 30px;
+}
+.car {
+    float: left;
+    margin-left: 15px;
+    width: 23px;
+    height: 23px;
+}
