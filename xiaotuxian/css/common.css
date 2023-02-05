@@ -130,3 +130,63 @@
     text-align: center;
     line-height: 15px;
 }
+
+/* 版权区域 */
+.footer {
+    height: 342px;
+    background-color: #333;
+}
+.footer .wrapper {
+    width: 1393px;
+}
+.footer .top {
+    padding-top: 59px;
+    padding-left: 135px;
+    height: 175px;
+    border-bottom: 3px solid #434343;
+}
+.footer .top li {
+    position: relative;
+    float: left;
+    margin-right: 300px;
+    width: 195px;
+    height: 58px;
+    line-height: 58px;
+}
+.footer .top li:last-child {
+    margin-right: 0;
+}
+/* 伪元素添加的标签 行内 */
+/* 如果行内块和行内文字无法通过vertical-align或行高对齐 用定位 */
+.footer .top li::before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    /* display: inline-block; */
+    content: '';
+    width: 58px;
+    height: 58px;
+    background-image: url(../images/精灵图.png);
+    vertical-align: middle;
+}
+.footer .top li:nth-child(2)::before {
+    background-position:-130px 0;
+}
+.footer .top li:last-child::before {
+    background-position: -64px 0;
+}
+.footer .top li span {
+    margin-left: 50px;
+    font-size: 28px;
+    color: #fff;
+}
+.footer .bottom {
+    padding-top: 40px;
+    font-size: 14px;
+    color: #999;
+    text-align: center;
+}
+.footer .bottom a {
+    font-size: 14px;
+    color: #999;
+}
