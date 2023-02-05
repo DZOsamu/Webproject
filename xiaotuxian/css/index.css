@@ -83,3 +83,75 @@
 .banner ol .current {
     background-color: #fff;
 }
+/* 新鲜好物 */
+.goods .hd {
+    height: 114px;
+    line-height: 114px;
+}
+.goods .hd h2 {
+    float: left;
+    height: 114px;
+    font-size: 29px;
+    font-weight: 400;
+}
+.goods .hd span {
+    margin-left: 34px;
+    font-size: 16px;
+    color: #999;
+}
+.goods .hd a {
+    float: right;
+    color: #999;
+}
+.goods .hd a::after {
+    display: inline-block;
+    margin-left: 13px;
+    content: '';
+    width: 7px;
+    height: 13px;
+    background-image: url(../images/精灵图.png);
+    background-position: 0 -110px;
+    vertical-align: middle;
+}
+.goods .bd li {
+    position: relative;
+    float: left;
+    margin-right: 8px;
+    width: 304px;
+    height: 405px;
+    background-color: #f0f9f4;
+    text-align: center;
+}
+.goods .bd li:last-child {
+    margin-right: 0;
+}
+.goods .bd li img {
+    width: 304px;
+}
+.goods .bd li h3 {
+    margin-top: 20px;
+    margin-bottom: 9px;
+    font-size: 20px;
+    font-weight: 400;
+}
+.goods .bd li div {
+    color: #9a2e1f;
+    font-size: 17px;
+}
+.goods .bd li div span {
+    font-size: 23px;
+    font-weight: bold;
+}
+.goods .bd li b {
+    position: absolute;
+    left: 17px;
+    top: 18px;
+    width: 28px;
+    height: 51px;
+    border: 2px solid #27ba9b;
+    border-radius: 3px;
+    font-size: 18px;
+    color: #27ba9b;
+    font-weight: 400;
+    line-height: 24px;
+}
