@@ -99,11 +99,13 @@
     font-size: 16px;
     color: #999;
 }
-.goods .hd a {
+.goods .hd a,
+.fresh .hd .more {
     float: right;
     color: #999;
 }
-.goods .hd a::after {
+.goods .hd a::after,
+.fresh .hd .more::after {
     display: inline-block;
     margin-left: 13px;
     content: '';
@@ -154,4 +156,69 @@
     color: #27ba9b;
     font-weight: 400;
     line-height: 24px;
+}
+/* 生鲜 */
+.fresh .hd {
+    height: 96px;
+    line-height: 96px;
+}
+.fresh .hd h2 {
+    float: left;
+    font-size: 29px;
+    font-weight: 400;
+}
+.fresh .hd .more {
+    float: right;
+}
+.fresh .hd ul {
+    float: right;
+    margin-right: 65px;
+}
+.fresh .hd ul li {
+    float: left;
+}
+.fresh .hd ul li a {
+    padding: 2px 7px;
+    margin-left: 6px;
+}
+.fresh .hd ul li a:hover {
+    background-color: #27ba9b;
+    color: #fff;
+}
+.fresh .bd .left {
+    float: left;
+    width: 240px;
+    height: 610px;
+}
+.fresh .bd .right {
+    float: left;
+    width: 1000px;
+    height: 610px;
+}
+.fresh .bd .right li {
+    float: left;
+    width: 240px;
+    height: 300px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+.fresh .bd .right li:nth-child(n+5) 
+{
+    margin-bottom: 0;
+}
+.fresh .bd .right li img {
+    width: 240px;
+    height: 200px;
+}
+.fresh .bd .right li div {
+    padding-left: 20px;
+    padding-bottom: 0;
+}
+.fresh .bd li .price {
+    margin-top: 2px;
+    color: #9a2e1f;
+}
+.fresh .bd li div span {
+    font-size: 18px;
+    font-weight: bold;
 }
