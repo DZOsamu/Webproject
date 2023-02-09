@@ -9,8 +9,10 @@
 <body>
     <script>
     // 1、输入两个数，输出较大的一个
-        let num1 = prompt('请输入第一个数：')
-        let num2 = prompt('请输入第二个数：')
+        // 输入的是字符串，字符串从左往右比较，即输入5和10，5>1，所以输出的是5
+        // 要比较数字就应在prompt前加+，让输入的字符串转换为数字再比较
+        let num1 = +prompt('请输入第一个数：')
+        let num2 = +prompt('请输入第二个数：')
         // num1 > num2 ? console.log(num1) : console.log(num2)
         let re = num1 > num2 ? num1 : num2
         console.log(re)
