@@ -8,13 +8,25 @@
 </head>
 <body>
     <script>
+        // 4、用户登录验证
         while (true) {
         let usename = prompt(`请输入用户名：`)
         let password = prompt(`请输入密码：`)
         if (usename === 'admin' && password === '123456') {
             alert('登录成功！')
         }
+        alert('错误，请重新登录')
         }
+
+    /*  let msg = prompt('名字')
+        let pwd = prompt('密码')
+        while (msg !== 'admin' || pwd !== '123456') {
+            alert('错误，请重新登录')
+            msg = prompt('名字')
+            pwd = prompt('密码')
+        }
+            alert('登录成功')
+        */
     </script>
 </body>
 </html>
