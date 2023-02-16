@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1、求数组元素和
+        let arr = [5, 8, 9, 2, 1, 5]
+        let sum1 = 0
+        for (let i = 0; i < arr.length; i++) {
+            sum1 += arr[i]
+        }
+        console.log(sum1)
+
+        // 2、求数组里大于5的数的和
+        let array = [4, 9, 5, 20, 3, 11]
+        let sum2 = 0
+        for (let i = 0; i < array.length; i++) {
+            if (array[i] > 5) {
+                sum2 += array[i]
+            }
+        }
+        console.log(sum2)
+
+        // 3、求学生的平均年龄
+        let age = [15, 19, 21, 33, 18, 24]
+        let sum3 = 0
+        for (let i = 0; i < age.length; i++) {
+            sum3 += age[i]
+        }
+        console.log(sum3 / age.length)
+
+        // 4、打印数组里所有的奇数
+        let num = [5, 2, 8, 10, 3, 7]
+        for (let i = 0; i < num.length; i++) {
+            if (num[i] %2 == 1) {
+                console.log(num[i])
+            }
+        }
+
+        // 5、计算数组中能被3整除的偶数的和
+        let a = [2, 6, 18, 15, 40]
+        let sum4 = 0
+        for (let i = 0; i < a.length; i++) {
+            if (a[i] % 2 == 0 && a[i] % 3 == 0) {
+                sum4 += a[i]
+            }
+        }
+        console.log(sum4)
+
+        // 6、计算数组中能被3整除的偶数的个数
+        let b = [2, 6, 18, 15, 40]
+        let number = 0
+        for (let i = 0; i < b.length; i++) {
+            if (b[i] % 2 == 0 && b[i] % 3 == 0) {
+                number++
+            }
+        }
+        console.log(number)
+    </script>
+</body>
+</html>
