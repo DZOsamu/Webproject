@@ -12,7 +12,8 @@
         let newArr = []
         for (let i = 0; i < arr.length; i++) {
             if (arr[i] >= 10) {
-                newArr.push(arr[i])
+                newArr.push(arr[i])   //在原数组后面添加
+                // newArr.unshift(arr[i])   //在原数组前面添加
             }
         }
         console.log(newArr)
