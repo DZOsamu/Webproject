@@ -7,6 +7,25 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <script>
+        // 声明
+        function getSum(num1, num2) {   //num1，num2是形参
+            console.log(num1 + num2);
+        }
+
+        // 调用
+        getSum(1, 2)   //1,2是实参
+        getSum(123,34)
+
+        function getSumSE(start, end) {
+            let sum = 0
+            for (let i = start; i <= end; i++) {
+                sum += i
+            }
+            console.log(sum)
+        }
+        getSumSE(1, 100)
+        getSumSE(9, 107)
+    </script>
 </body>
 </html>
