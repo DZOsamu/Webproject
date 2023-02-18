@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 局部作用域下 变量是局部变量
+        function fn() {
+            let num = 10
+            console.log(num)
+            function fn1() {
+                console.log(num)
+                let num2 = 20
+            }
+            fn1()
+            // console.log(num2)   // 报错，未定义
+        }
+        fn()
+        // console.log(num)   // 报错，未定义
+    </script>
+</body>
+</html>
