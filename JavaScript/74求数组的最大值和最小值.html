@@ -17,9 +17,11 @@
                 if (arr[i] > max) {
                     max = arr[i]
                 }
+                // max < arr[i] ? max = arr[i] : max
                 if (arr[i] < min) {
                     min = arr[i]
                 }
+                // min < arr[i] ? min = arr[i] : min
             }
             return [max, min]
         }
