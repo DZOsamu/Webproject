@@ -18,10 +18,12 @@
                     max = arr[i]
                 }
                 // max < arr[i] ? max = arr[i] : max
+                // max = max < arr[i] ? arr[i] : max
                 if (arr[i] < min) {
                     min = arr[i]
                 }
                 // min < arr[i] ? min = arr[i] : min
+                // min = min < arr[i] ? arr[i] : min
             }
             return [max, min]
         }
