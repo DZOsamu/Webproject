@@ -8,7 +8,9 @@
 </head>
 <body>
     <script>
-        function fn(x, y) {
+        function fn(x, y) {   // 或者写成fn(x = 0, y = 0)
+            // x = x || 0   // 写上之后，如果没有传来参数，x、y的值就默认是0
+            // y = y || 0
             console.log(x + y);
         }
         fn(1, 2)
