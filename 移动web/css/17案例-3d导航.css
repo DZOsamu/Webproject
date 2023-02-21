@@ -19,6 +19,9 @@ ul {
 
     /* 方便查看3d立体效果 */
     /* transform: rotateX(-20deg) rotateY(30deg); */
+
+    /* 测试缩放效果 */
+    /* transform: scale3d(.5, 1.1, 2); */
 }
 .navs li a {
     position: absolute;
