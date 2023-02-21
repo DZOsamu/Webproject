@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            perspective: 1000px;
+        }
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+            margin: 100px auto;
+            transition: all .5s;
+        }
+        .box:hover {
+            /* transform: translate3d(50px, 150px, 200px); */
+            /* transform: translateX(100px); */
+            /* x和y轴的变化可以看见，z轴的变化需要其他属性做支撑 */
+            transform: translateZ(200px);
+            transform: translateZ(-200px);
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>
