@@ -54,6 +54,12 @@ img {
     color: #fff;
     font-size: 14px;
 }
+.box .txt p .iconfont {
+    color: #fff;
+    vertical-align: middle;
+    font-size: 14px;
+    font-weight: 700;
+}
 .box .mask {
     position: absolute;
     left: 0;
