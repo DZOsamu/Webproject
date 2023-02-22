@@ -10,11 +10,18 @@
             width: 100px;
             height: 100px;
             background-color: skyblue;
-            animation: change 1s linear 1s 3 alternate forwards;
+            /* animation: change 1s linear 1s 3 alternate forwards; */
             /* animation: change 1s steps(5) infinite; */
             /* linear 匀速  step(值) 分部动画 */
             /* 3 重复3次  infinite 无限循环 */
             /* backwards 默认值，停在初状态  forwars 停在末状态 */
+
+            animation-name: change;
+            animation-duration: .5s;
+            animation-iteration-count: infinite;
+        }
+        .box:hover {
+            animation-play-state: paused;
         }
         @keyframes change {
             from {
