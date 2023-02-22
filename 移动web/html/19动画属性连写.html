@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+            animation: change 1s linear 1s 3 alternate forwards;
+            /* animation: change 1s steps(5) infinite; */
+            /* linear 匀速  step(值) 分部动画 */
+            /* 3 重复3次  infinite 无限循环 */
+            /* backwards 默认值，停在初状态  forwars 停在末状态 */
+        }
+        @keyframes change {
+            from {
+                width: 100px;
+            }
+            to {
+                width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>
