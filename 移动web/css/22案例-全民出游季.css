@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+html {
+    height: 100%;
+}
+body {
+    height: 100%;
+    background: url(../image/全民出游季/f1_1.jpg) no-repeat center 0;
+    /* 缩放背景图 */
+    /* background-size: contain; */
+    /* contain 等比例缩放到宽或高有一个与盒子相等 */
+    background-size: cover;
+    /* cover 等比例缩放到完全覆盖盒子 */
+}
+.cloud img {
+    position: absolute;
+    left: 50%;
+    top: 0;
+}
+.cloud img:nth-child(1) {
+    margin-left: -200px;
+    top: 20px;
+    animation: cloud 1s linear alternate infinite;
+}
+.cloud img:nth-child(2) {
+    margin-left: 330px;
+    top: 85px;
+    animation: cloud 1s linear alternate infinite 0.2s;
+}
+.cloud img:nth-child(3) {
+    margin-left: -455px;
+    top: 155px;
+    animation: cloud 1.5s linear alternate infinite 0.4s;
+}
+@keyframes cloud {
+    to {
+        transform: translateX(20px);
+    }
+}
+.ballon {
+    position: absolute;
+    left: 450px;
+    top: 125px;
+    width: 110px;
+    animation: ballon 1.5s linear alternate infinite;
+}
+@keyframes ballon {
+    to {
+        transform: translateY(30px);
+    }
+}
+.lu {
+    position: absolute;
+    right: 475px;
+    top: 115px;
+    width: 170px;
+}
+.font {
+    position: absolute;
+    left: 505px;
+    top: 260px;
+    width: 535px;
+}
+.bottom img {
+    position: absolute;
+    left: 50%;
+    bottom: 45px;
+    height: 100px;
+}
+.bottom img:nth-child(1) {
+    margin-left: -300px;
+    animation: bottom 0.4s alternate infinite;
+}
+.bottom img:nth-child(2) {
+    margin-left: -110px;
+    animation: bottom 0.5s alternate infinite 0.1s;
+}
+.bottom img:nth-child(3) {
+    margin-left: 60px;
+    animation: bottom 0.5s alternate infinite 0.2s;
+}
+.bottom img:nth-child(4) {
+    margin-left: 225px;
+    animation: bottom 0.5s alternate infinite 0.3s;
+}
+@keyframes bottom {
+    to {
+        transform: translateY(-20px);
+    }
+}
