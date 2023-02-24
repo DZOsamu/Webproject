@@ -15,6 +15,9 @@
         let random = getRandom(0, arr.length - 1)
         // 随机生成一个数，作为数组的索引号
         console.log(arr[random])
+        // 点名后删除
+        arr.splice(random, 1)
+        console.log(arr)
     </script>
 </body>
 </html>
