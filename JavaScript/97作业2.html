@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function random(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min
+        }
+            let num = random(0, 20)
+            let flag = true
+            for (let i = 1; i <= 8; i++) {
+                let userNum = prompt('请输入您要猜的数字')
+                if (userNum > num) {
+                    alert('猜大了')
+                } else if (userNum < num) {
+                    alert('猜小了')
+                } else {
+                    flag = false
+                    alert('猜对了')
+                    break
+                }
+            }
+            if (flag) {
+            alert('在8次内没猜到')
+            }
+    </script>
+</body>
+</html>
