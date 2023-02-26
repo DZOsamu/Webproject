@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let num1 = 10
+        let nm2 = num1
+        num2 = 20
+        console.log(num1)   // 10 num2的改变对num1没有影响，简单数据类型里存储的是值
+
+        let obj1 = {
+            age: 18   // obj1的栈里存储的是地址，堆里存储的是该地址的数据
+        }
+        let obj2 = obj1   // obj2的栈里存的是obj1的地址
+        obj2.age = 20   // 修改obj2即修改obj1，两者指向的是同一地址
+        console.log(obj1)   // 20
+    </script>
+</body>
+</html>
