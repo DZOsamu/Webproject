@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1、
+        function getRandom(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min
+        }
+        let arr = ['老赵', '老李', '小传', '小黑 ']
+        let random = getRandom(0, arr.length - 1)
+        console.log(arr[random])
+        arr.splice(random, 1)
+
+        // 2、
+        let per = {
+            // 属性
+            sex: 'man',
+            age: 18,
+            hobby: 'studyAndGame',
+            // 方法
+            speak: function () {
+                console.log(`调用了speak方法`)
+            },
+            eat: function (f) {
+                console.log(`我吃了${f}`)
+            }
+        }
+        console.log(`性别:${per.sex}`)
+        console.log(`年龄:${per.age}`)
+        console.log(`爱好:${per.hobby}`)
+        per.speak()
+        per.eat('苹果')
+    </script>
+</body>
+</html>
