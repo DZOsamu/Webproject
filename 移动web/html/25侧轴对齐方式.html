@@ -12,9 +12,12 @@
         }
         .box {
             display: flex;
+            /* 垂直居中 */
+            /* align-items: center; */
+            /* 将没有设置高度的弹性盒子拉伸至铺满容器 */
+            /* align-items: stretch; */
             
-            
-            height: 200px;
+            height: 300px;
             margin: auto;
             border: 1px solid #000;
         }
@@ -22,6 +25,11 @@
             width: 100px;
             height: 100px;
             background-color: skyblue;
+        }
+
+        /* 单独给一个盒子设置侧轴对齐 */
+        .box div:nth-child(2) {
+            align-self: center;
         }
     </style>
 </head>
