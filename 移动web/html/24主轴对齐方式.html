@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            /* display: flex;只能是给父级添加 */
+            /* 弹性盒子默认沿主轴（水平）排列 */
+            display: flex;
+            /* 居中 */
+            /* justify-content: center; */
+            /* 间距在盒子之间 */
+            /* justify-content: space-between; */
+            /* 盒子间的间距是盒子与容器间间距的两倍 */
+            /* justify-content: space-around; */
+            /* 所有间距相等 */
+            justify-content: space-evenly;
+            
+            height: 200px;
+            margin: auto;
+            border: 1px solid #000;
+        }
+        .box div {
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+</body>
+</html>
