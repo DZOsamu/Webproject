@@ -230,14 +230,11 @@
     display: flex;
     width: 930px;
     height: 260px;
-    margin: 0 auto;
+    margin: 0 auto 28px;
 }
 .orders .history li {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    flex-direction: column;
-    margin: 10px;
+    flex: 1;
+
 }
 .orders .history li p {
     padding: 0 15px;
@@ -245,10 +242,12 @@
 }
 .orders .history li p:last-child {
     color: #9a2e1f;
-    font-size: 16px;
+}
+.orders .history li p:last-child i {
+    font-size: 22px;
 }
 .orders .history img {
     width: 160px;
     height: 160px;
-    margin-bottom: 20px;
+    margin: 30px 20px 20px;
 }
