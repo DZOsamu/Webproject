@@ -1,0 +1,12 @@
+.father {
+  width: 100px;
+}
+.father .son {
+  color: skyblue;
+}
+.father .son:hover {
+  color: aquamarine;
+}
+.father:hover {
+  width: 200px;
+}
