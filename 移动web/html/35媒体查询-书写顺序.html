@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    /*  视口宽度>=768px，网页背景色是粉色
+        视口宽度>=768px，网页背景色是橙色
+        视口宽度>=768px，网页背景色是天蓝  */
+
+        /* css属性具有层叠性，写在后面的会覆盖前面的，所以min-width要从小到大往下写，max-width相反 */
+        @media (min-width: 768px) {
+            body {
+                background-color: pink;
+            }
+        }
+        @media (min-width: 992px) {
+            body {
+                background-color: orange;
+            }
+        }
+        @media (min-width: 1200px) {
+            body {
+                background-color: skyblue;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+</body>
+</html>
