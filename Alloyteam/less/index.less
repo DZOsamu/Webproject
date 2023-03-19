@@ -1,0 +1,34 @@
+// banner
+.carousel {
+    // 视口<768，图高250
+    // 视口<992，图高400
+    // 视口>992，图高500
+
+    img {
+        height: 100% !important;
+    }
+
+    @media (max-width: 992px) {
+        .item {
+            height: 400px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .item {
+            height: 250px;
+        }
+    }
+
+    @media (min-width: 992px) {
+        .item {
+            height: 500px;
+        }
+    }
+}
+
+// 头部
+.navbar-default {
+    background-color: transparent;
+    border: 0;
+}
