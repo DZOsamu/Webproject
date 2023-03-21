@@ -20,3 +20,55 @@
   background-color: transparent;
   border: 0;
 }
+.project {
+  padding-top: 30px;
+  text-align: center;
+}
+.project .container {
+  margin-top: 20px;
+}
+.project .container div a {
+  display: block;
+  height: 200px;
+  margin-bottom: 10px;
+  color: #fff;
+  border-radius: 5px;
+}
+.project .container div a div {
+  margin-top: 5px;
+}
+.project .container div a:hover {
+  text-decoration: none;
+}
+.project .container .one {
+  background-color: #70c3ff;
+}
+.project .container .one img {
+  margin-top: 15px;
+  width: 170px;
+  margin-bottom: 20px;
+}
+.project .container .two {
+  background-color: #fd6a7f;
+}
+.project .container .two img {
+  margin-top: 25px;
+  width: 200px;
+  margin-bottom: 10px;
+}
+.project .container .three {
+  background-color: #7f8ea0;
+}
+.project .container .three img {
+  margin-top: 13px;
+  height: 75px;
+  margin-bottom: 20px;
+}
+.project .container .four {
+  background-color: #89d04f;
+}
+.project .container .four img {
+  margin-top: 14px;
+  height: 72px;
+  margin-bottom: 20px;
+}
