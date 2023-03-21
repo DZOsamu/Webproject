@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 150px;
+            height: 40px;
+            display: inline-block;
+            vertical-align: middle;
+            border: 1px solid skyblue;
+            text-align: center;
+            line-height: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    抽中的选手： <div></div>
+
+    <script>
+        // 1、获取元素
+        let box = document.querySelector('div')
+
+        // 2、获得随机的名字
+        // 随机数
+        function getRandom(min, max) {
+            return Math.floor(Math.random() * (max - min + 1))
+                + min
+        }
+        // 声明一个数组
+        let arr = ['赵云', '黄忠', '关羽', '张飞', '马超', '刘备', '曹超']
+        // 生成一个随机数 作为数组的索引号
+
+        // 3、写入标签内部
+        let random = getRandom(0, arr.length - 1)
+
+        // 之后删除这个人的名字
+        // arr.splice(从哪里开始删,删几个)
+        box.innerHTML = arr[random]
+        arr.splice(random, 1)
+    </script>
+</body>
+
+</html>
