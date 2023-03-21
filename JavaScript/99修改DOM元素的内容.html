@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 100px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <div>skybule</div>
+
+    <script>
+        // 1、获取标签
+        let box = document.querySelector('div')
+        // 2、修改内容  box是对象 innerText是属性
+        // 对象.属性 = 值
+        // box.innerText = '<strong>天蓝~</strong>'  不识别标签
+        box.innerText = '天蓝~'
+        box.innerHTML = '<strong>天蓝~</strong>'  // 解析标签
+    </script>
+</body>
+</html>
