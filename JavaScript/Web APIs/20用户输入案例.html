@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div class="w">
+        <div class="controls">
+            <!-- img -->
+            <textarea placeholder="说点什么吧" id="area" cols="30" rows="10" maxlength="200"></textarea>
+        </div>
+        <span class="useCount">0</span>
+        <span>/</span>
+        <span>200</span>
+        <button id="send">发布</button>
+    </div>
+
+    <script>
+        // 1、获取元素 文本域 count
+        let area = document.querySelector('#area')
+        let useCount = document.querySelector('.useCount')
+        // 2、绑定事件 用户输入事件 input
+        area.addEventListener('input', function () {
+            // 不断得到文本域里的字符长度
+            // area.value 可以得到输入的内容
+            // console.log(area.value.length)可以得到输入内容的长度
+            useCount.innerHTML = area.value.length
+        })
+    </script>
+</body>
+
+</html>
