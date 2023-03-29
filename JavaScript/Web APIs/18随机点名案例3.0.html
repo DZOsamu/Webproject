@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .box {
+            width: 600px;
+            margin: 50px auto;
+            display: flex;
+            font-size: 25px;
+            line-height: 40px;
+        }
+
+        .qs {
+            width: 450px;
+            height: 40px;
+            color: red;
+        }
+
+        .btns {
+            text-align: center;
+        }
+
+        .btns button {
+            width: 120px;
+            height: 35px;
+            margin: 0 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>随机点名</h2>
+    <div class="box">
+        <span>名字是：</span>
+        <div class="qs">这里显示名字</div>
+    </div>
+    <div class="btns">
+        <button class="start">开始</button>
+        <button class="end">结束</button>
+    </div>
+
+    <script>
+        function getRandom(min, max) {
+            return Math.floor(Math.random() * (max - min + 1))
+                + min
+        }
+        let arr = ['赵云', '黄忠', '关羽', '张飞', '马超', '刘备', '曹超']
+        // 1、获取元素
+        let start = document.querySelector('.start')
+        let end = document.querySelector('.end')
+        let qs = document.querySelector('.qs')
+
+        // timer和random必须是全局变量，别的函数里才能用
+        let timer = 0
+        let random = 0
+        // 2、开始按钮点击事件
+        start.addEventListener('click', function () {
+            // 随机抽取数据 间歇函数
+            timer = setInterval(function () {
+                random = getRandom(0, arr.length - 1)
+                qs.innerHTML = arr[random]
+            }, 25)
+            // 
+            if (arr.length === 1) {
+                // start.disabled = true
+                // end.disabled = true
+                start.disabled = end.disabled = true
+            }
+        })
+        // 3、结束按钮点击事件 本质是停止计时器
+        end.addEventListener('click', function () {
+            clearInterval(timer)
+            // 删除数组元素
+            arr.splice(random, 1)
+        })
+    </script>
+</body>
+
+</html>
