@@ -81,13 +81,15 @@
         let search = document.querySelector('input')
         let list = document.querySelector('.result_list')
         // 获得焦点
-        search.addEventListener('focus', function () {
+        // search.addEventListener('focus', function () {
+        search.addEventListener('mouseenter', function () {
             // 显示隐藏的下拉菜单 边框变色
             list.style.display = 'block'
             search.classList.add('search')
         })
         // 失去焦点
-        search.addEventListener('blur', function () {
+        // search.addEventListener('blur', function () {
+        search.addEventListener('mouseleave', function () {
             list.style.display = 'none'
             search.classList.remove('search')
         })
