@@ -80,6 +80,7 @@
         // 1、获取元素
         let all = document.querySelector('#checkAll')
         let cks = document.querySelectorAll('.ck')
+        let span = document.querySelector('span')
         // 2、事件监听 全选按钮
         all.addEventListener('click',function() {
             // console.log(all.checked)
@@ -87,6 +88,13 @@
             // 因为三个按钮都在伪数组里面，用遍历的方式挨着取出来，依次给值
             for (let i = 0; i < cks.length; i++) {
                 cks[i].checked = all.checked
+            }
+
+            // 当处于全选状态时，改为“取消”
+            if(all.checked == true) {
+                span.innerHTML = '取消'
+            } else {
+                span.innerHTML = '全选'
             }
         })
     </script>
