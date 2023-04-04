@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .erweima {
+            width: 160px;
+            height: 160px;
+            border: 1px solid #000;
+            background: url(./code.png) no-repeat;
+            position: relative;
+        }
+
+        .close {
+            position: absolute;
+            right: -36px;
+            top: -1px;
+            width: 34px;
+            height: 34px;
+            background: url(./bgs.png) no-repeat;
+            cursor: pointer;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="erweima"><span class="close"></span></div>
+    <div class="erweima"><span class="close"></span></div>
+    <div class="erweima"><span class="close"></span></div>
+    <div class="erweima"><span class="close"></span></div>
+
+    <script>
+        // 1、获取元素 关闭按钮
+        let close_btn = document.querySelectorAll('.close')
+        // 2、绑定多个点击事件给close
+        for (let i = 0; i < close_btn.length; i++) {
+            close_btn[i].addEventListener('click',function () {
+                // this.parentNode.style.display = 'none'   // 不占位，隐藏后后面的盒子上移
+                this.parentNode.style.visibility = 'hidden'
+            })
+            
+        }
+    </script>
+</body>
+
+</html>
