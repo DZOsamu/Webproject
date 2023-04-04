@@ -42,10 +42,11 @@
     <script>
         // 1、获取元素
         let close_btn = document.querySelector('.close_btn')
-        let erweima = document.querySelector('.erweima')
+        // let erweima = document.querySelector('.erweima')
         // 2、事件监听
         close_btn.addEventListener('click',function () {
-            erweima.style.display = 'none'
+            // erweima.style.display = 'none'
+            close_btn.parentNode.style.display = 'none'
         })
     </script>
 </body>
