@@ -97,6 +97,24 @@
                 span.innerHTML = '全选'
             }
         })
+        // 3、小按钮 同时给多个元素绑定相同事件
+        for (let i = 0; i < cks.length; i++) {
+            // 绑定事件
+            cks[i].addEventListener('click',function () {
+                // 只要点击任何一个小按钮，都要进行遍历
+                for (let j = 0; j < cks.length; j++) {
+                    // 遍历看小按钮是否有没有选中的
+                    if(cks[j].checked === false) {
+                        all.checked = false
+                        span.innerHTML = '全选'
+                        return   // 如果有false，则退出循环，结束函数
+                    }
+                }
+                // 循环结束，如果代码走到这里，说明没有false，所有小按钮都被选中
+                all.checked = true
+                span.innerHTML = '取消'
+            })
+        }
     </script>
 </body>
 
