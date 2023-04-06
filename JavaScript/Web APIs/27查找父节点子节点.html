@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 父节点  -->
+    <div class="father">...
+        <div class="son">son</div>
+    </div>
+    <!-- 父节点  -->
+
+    <!-- 子节点 -->
+    <button>点击</button>
+    <ul>
+        <li>我是孩纸</li>
+        <li>我是孩纸</li>
+        <li>我是孩纸</li>
+        <li>我是孩纸</li>
+        <li>我是孩纸</li>
+        <li>我是孩纸</li>
+    </ul>
+    <!-- 子节点 -->
+
+    <script>
+        // 父节点
+        let son = document.querySelector('.son')
+        console.log(son.parentNode)
+        son.parentNode.style.display = 'none'
+
+        // 子节点
+        let btn = document.querySelector('button')
+        let ul = document.querySelector('ul')
+        btn.addEventListener('click',function () {
+            // console.log(ul.children)
+            for (let i = 0; i < ul.children.length; i++) {
+                ul.children[i].style.color = 'red'
+                
+            }
+        })
+        ul.children[0].style.color = 'green'
+
+        console.log(ul.childNodes)
+        // 获得的长度是13，从ul换行到第一个li，还有一个文本，是空
+    </script>
+</body>
+
+</html>
