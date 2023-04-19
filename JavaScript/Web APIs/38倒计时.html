@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .countdown {
+            width: 240px;
+            height: 305px;
+            text-align: center;
+            line-height: 1;
+            color: #fff;
+            background-color: brown;
+            /* background-size: 240px; */
+            /* float: left; */
+            overflow: hidden;
+        }
+
+        .countdown .next {
+            font-size: 16px;
+            margin: 25px 0 14px;
+        }
+
+        .countdown .title {
+            font-size: 33px;
+        }
+
+        .countdown .tips {
+            margin-top: 80px;
+            font-size: 23px;
+        }
+
+        .countdown small {
+            font-size: 17px;
+        }
+
+        .countdown .clock {
+            width: 142px;
+            margin: 18px auto 0;
+            overflow: hidden;
+        }
+
+        .countdown .clock span,
+        .countdown .clock i {
+            display: block;
+            text-align: center;
+            line-height: 34px;
+            font-size: 23px;
+            float: left;
+        }
+
+        .countdown .clock span {
+            width: 34px;
+            height: 34px;
+            border-radius: 2px;
+            background-color: #303430;
+        }
+
+        .countdown .clock i {
+            width: 20px;
+            font-style: normal;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="countdown">
+        <p class="next">今天是2023年4月19日</p>
+        <p class="title">今日倒计时</p>
+        <p class="clock">
+            <span id="hour">00</span>
+            <i>:</i>
+            <span id="minutes">25</span>
+            <i>:</i>
+            <span id="second">20</span>
+        </p>
+        <p class="tips">00:00:00</p>
+    </div>
+
+    <script>
+        // 0、获取时分秒元素
+        let hour = document.querySelector('#hour')
+        let minutes = document.querySelector('#minutes')
+        let second = document.querySelector('#second')
+        let tips = document.querySelector('.tips')
+        time()
+        setInterval(time, 1000)
+        function time() {
+            // 1、得到现在的时间戳
+            let now = +new Date()
+            // 2、得到指定时间的时间戳
+            let future = +new Date('2023-4-24 00:00:00')
+            // 3、计算(剩余的毫秒数)/1000=秒数
+            let count = (future - now) / 1000
+            // 4、转换为时分秒+补零
+            let h = parseInt(count / 60 / 60 % 24)
+            h = h < 10 ? '0' + h : h
+            let m = parseInt(count / 60 % 60)
+            m = m < 10 ? '0' + m : m
+            let s = parseInt(count % 60)
+            s = s < 10 ? '0' + s : s
+            ///5、填入盒子
+            hour.innerHTML = h
+            minutes.innerHTML = m
+            second.innerHTML = s
+        }
+    </script>
+</body>
+
+</html>
