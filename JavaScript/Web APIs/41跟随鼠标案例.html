@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 120px;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="./41.gif" alt="">
+
+    <script>
+        let img = document.querySelector('img')
+        document.addEventListener('mousemove', function (e) {
+            // 不断得到当前鼠标的坐标 e.pageX e.pageY
+            // 把坐标给图片 一定要加单位
+            img.style.left = e.pageX - 70 + 'px'
+            img.style.top = e.pageY - 60 + 'px'
+        })
+    </script>
+</body>
+
+</html>
