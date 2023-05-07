@@ -32,14 +32,21 @@
         let son = document.querySelector('.son')
         fa.addEventListener('click', function () {
             alert('我是爸爸')
-        },true)
-        son.addEventListener('click', function () {   // 点击son触发
+            // },true)
+        })
+
+        son.addEventListener('click', function (e) {   // 点击son触发
             alert('我是儿子')
-        },true)
+            // 阻止流动
+            e.stopPropagation()
+            // },true)
+        })
+
         // document.addEventListener('dblclick',function () {   // 点击son不触发
         document.addEventListener('click', function () {
             alert('我是爷爷')
-        },true)
+            // },true)
+        })
         // 写第三个参数为true后，点击son，依次触发：爷爷-爸爸-儿子
         // 不写第三个参数或写为false，点击son，依次触发：儿子-爸爸-爷爷
     </script>
