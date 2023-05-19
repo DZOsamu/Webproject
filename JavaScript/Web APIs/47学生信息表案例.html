@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #721c24;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin: 20px 0;
+
+        }
+
+        table {
+            margin: 0 auto;
+            width: 800px;
+            border-collapse: collapse;
+            color: #004085;
+        }
+
+        th {
+            padding: 10px;
+            background: #cfe5ff;
+
+            font-size: 20px;
+            font-weight: 400;
+        }
+
+        td,
+        th {
+            border: 1px solid #b8daff;
+        }
+
+        td {
+            padding: 10px;
+            color: #666;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        tbody tr {
+            background: #fff;
+        }
+
+        tbody tr:hover {
+            background: #e1ecf8;
+        }
+
+        .info {
+            width: 900px;
+            margin: 50px auto;
+            text-align: center;
+        }
+
+        .info input,
+        .info select {
+            width: 80px;
+            height: 27px;
+            outline: none;
+            border-radius: 5px;
+            border: 1px solid #b8daff;
+            padding-left: 5px;
+            box-sizing: border-box;
+            margin-right: 15px;
+        }
+
+        .info button {
+            width: 60px;
+            height: 27px;
+            background-color: #004085;
+            outline: none;
+            border: 0;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .info .age {
+            width: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>新增学员</h1>
+    <form class="info" autocomplete="off">
+        姓名：<input type="text" class="uname" name="uname" />
+        年龄：<input type="text" class="age" name="age" />
+        性别:
+        <select name="gender" class="gender">
+            <option value="男">男</option>
+            <option value="女">女</option>
+        </select>
+        薪资：<input type="text" class="salary" name="salary" />
+        就业城市：<select name="city" class="city">
+            <option value="北京">北京</option>
+            <option value="上海">上海</option>
+            <option value="广州">广州</option>
+            <option value="深圳">深圳</option>
+            <option value="曹县">曹县</option>
+        </select>
+        <button class="add" type="button">录入</button>
+    </form>
+
+    <h1>就业榜</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>学号</th>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>性别</th>
+                <th>薪资</th>
+                <th>就业城市</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--    <tr>
+                <td>1001</td>
+                <td>欧阳霸天</td>
+                <td>19</td>
+                <td>男</td>
+                <td>15000</td>
+                <td>上海</td>
+                <td>
+                    <a href="javascript:">删除</a>
+                </td>
+            </tr> -->
+        </tbody>
+    </table>
+
+    <script>
+        // 1、准备好数据后端的数据
+        let arr = [
+            { stuID: 1001, uname: '欧阳霸天', age: 19, gender: '男', salary: '20000', city: '上海' },
+            { stuID: 1002, uname: '令狐霸天', age: 29, gender: '男', salary: '30000', city: '北京' },
+            { stuID: 1003, uname: '诸葛霸天', age: 39, gender: '男', salary: '2000', city: '北京' }
+        ]
+        console.log(arr)
+
+        // 获取父元素
+        let tbody = document.querySelector('tbody')
+        // 获取各个表单元素
+        let uname = document.querySelector('.uname')
+        let age = document.querySelector('.age')
+        let gender = document.querySelector('.gender')
+        let salary = document.querySelector('.salary')
+        let city = document.querySelector('.city')
+
+        // 渲染函数  把数组里面的数据渲染到页面中
+        function render() {
+            // 先删除以前的数据
+            tbody.innerHTML = ''
+            // 再渲染新的表格
+
+            for (let i = 0; i < arr.length; i++) {
+                // 1、创建tr  createElement()
+                let tr = document.createElement('tr')
+                // 2、tr里面放内容
+                tr.innerHTML = `
+                    <td>${arr[i].stuID}</td>
+                    <td>${arr[i].uname}</td>
+                    <td>${arr[i].age}</td>
+                    <td>${arr[i].gender}</td>
+                    <td>${arr[i].salary}</td>
+                    <td>${arr[i].city}</td>
+                    <td>
+                        <a href="javascript:" id="${i}">删除</a>
+                    </td>
+                `   // 给a添加索引号，后面删除就知道要删除的是哪个
+
+                // 3、把tr追加给tbody  后追加：父元素.appendChild(子元素)
+                tbody.appendChild(tr)
+
+                // 复原所有表单数据
+                uname.value = age.value = salary.value = ''
+                gender.value = '男'
+                city.value = '北京'
+            }
+        }
+        // 页面加载就调用函数，函数的调用不能直接写在函数里面，会陷入死循环
+        render()
+
+        // 添加删除数据 对数组进行操作
+        // 获取录入按钮
+        let add = document.querySelector('.add')
+        add.addEventListener('click', function () {
+            // 获得表单里的值 再用push追加给数组arr
+            arr.push({
+                stuID: arr[arr.length - 1].stuID + 1,
+                uname: uname.value,
+                age: age.value,
+                gender: gender.value,
+                salary: salary.value,
+                city: city.value
+            })
+            console.log(arr)
+
+            // 重新渲染函数
+            render()
+        })
+
+        // 删除操作  删除的是数组里面的数据  用事件委托，委托给tbody
+        tbody.addEventListener('click', function (e) {
+            // 只有点击链接a，才执行删除操作
+            // 找到点击的是什么 e.target.tagName
+            if (e.target.tagName === 'A') {
+                // 删除数组里面的数据 arr.splice(从哪里删,删除的个数)
+                // 前面给每一个a添加了对应的索引号，通过e.target.id获取相应a的id
+                arr.splice(e.target.id, 1)
+
+                // 重新渲染函数
+                render()
+            }
+        })
+    </script>
+</body>
+
+</html>
