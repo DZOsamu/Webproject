@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul {
+            list-style: none;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        div {
+            width: 1200px;
+            height: 280px;
+            margin: 50px auto;
+            border: 1px solid red;
+            overflow: hidden;
+        }
+
+        div li {
+            width: 240px;
+            height: 280px;
+            float: left;
+            transition: all 500ms;
+        }
+
+        div ul {
+            width: 1200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <ul>
+            <li><a href="#"><img src="./48images/1.png" alt=""></a></li>
+            <li><a href="#"><img src="./48images/2.png" alt=""></a></li>
+            <li><a href="#"><img src="./48images/3.png" alt=""></a></li>
+            <li><a href="#"><img src="./48images/4.png" alt=""></a></li>
+            <li><a href="#"><img src="./48images/5.png" alt=""></a></li>
+        </ul>
+    </div>
+
+    <script>
+        // 里默认有个宽度是240px
+        // 排他思想：
+        // 鼠标经过，当前li宽度变为800，其余变为100
+        // 鼠标离开，所有li复原，宽度为240
+
+        // 1、获取元素
+        let lis = document.querySelectorAll('li')
+        // 2、绑定鼠标事件
+        for (let i = 0; i < lis.length; i++) {
+            // 鼠标经过
+            lis[i].addEventListener('mouseenter', function () {
+                // 排他思想 （干掉所有人100px，复活我自己800px）
+                for (let j = 0; j < lis.length; j++) {
+                    lis[j].style.width = '100px'
+                }
+                this.style.width = '800px'
+            })
+            // 鼠标离开
+            lis[i].addEventListener('mouseleave', function () {
+                for (let j = 0; j < lis.length; j++) {
+                    lis[j].style.width = '240px'
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>
