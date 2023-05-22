@@ -11,7 +11,10 @@
             width: 150px;
             height: 150px;
             background-color: skyblue;
+            padding: 10px;
             overflow: auto;
+            border: 10px solid cadetblue;
+            margin: 100px auto;
         }
     </style>
 </head>
@@ -36,12 +39,18 @@
     <script>
         // scrollWidth scrollHeight 内容的宽高
         let div = document.querySelector('div')
-        console.log(div.scrollWidth)   // 返回133 没有单位
-        console.log(div.scrollHeight)   // 返回462 而不是150
-        div.addEventListener('scroll',function() {
-            console.log(this.scrollTop)
-            // console.log(this.scrollLeft)
-        })
+        console.log(div.scrollWidth)   // 返回153
+        console.log(div.scrollHeight)   // 返回398
+        // 被卷去的头部和左侧
+        // div.addEventListener('scroll',function() {
+        //     console.log(this.scrollTop)
+        //     // console.log(this.scrollLeft)
+        // })
+        console.log('-------------------------------')
+        console.log(div.offsetWidth)   // 返回190
+        console.log(div.offsetHeight)   // 返回190
+        console.log(div.offsetTop)
+        console.log(div.offsetLeft)
     </script>
 </body>
 
