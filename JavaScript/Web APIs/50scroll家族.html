@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 150px;
+            height: 150px;
+            background-color: skyblue;
+            overflow: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+    </div>
+    <script>
+        // scrollWidth scrollHeight 内容的宽高
+        let div = document.querySelector('div')
+        console.log(div.scrollWidth)   // 返回133 没有单位
+        console.log(div.scrollHeight)   // 返回462 而不是150
+        div.addEventListener('scroll',function() {
+            console.log(this.scrollTop)
+            console.log(this.scrollLeft)
+        })
+    </script>
+</body>
+
+</html>
