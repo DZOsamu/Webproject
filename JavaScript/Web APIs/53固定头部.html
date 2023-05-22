@@ -22,7 +22,7 @@
         }
 
         .backtop {
-            display: none;
+            /* display: none; */
             width: 50px;
             left: 50%;
             margin: 0 0 0 505px;
@@ -34,7 +34,7 @@
         .backtop a {
             height: 50px;
             width: 50px;
-            background: url(./images/bg2.png) 0 -600px no-repeat;
+            background-image: url(./52bg.png);
             opacity: 0.35;
             overflow: hidden;
             display: block;
@@ -71,7 +71,7 @@
         <div class="sk">秒杀模块</div>
     </div>
     <div class="backtop">
-        <img src="./images/close2.png" alt="">
+        <img src="./52close.png" alt="">
         <a href="javascript:;"></a>
     </div>
 
@@ -90,6 +90,24 @@
                 header.style.top = '-80px'
             }
         })
+
+        // 返回顶部
+        let backtop = document.querySelector('.backtop')
+        window.addEventListener('scroll', function () {
+            let num = document.documentElement.scrollTop
+            if (num >= 500) {
+                backtop.style.display = 'block'
+            } else {
+                backtop.style.display = 'none'
+            }
+        })
+        backtop.children[1].addEventListener('click', function () {
+            document.documentElement.scrollTop = 0
+        })
+        backtop.children[0].addEventListener('click', function () {
+            backtop.style.display = 'none'
+        })
+        // 返回顶部
     </script>
 </body>
 
