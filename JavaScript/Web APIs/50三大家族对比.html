@@ -11,7 +11,7 @@
             width: 150px;
             height: 150px;
             background-color: skyblue;
-            padding: 10px;
+            padding: 5px;
             overflow: auto;
             border: 10px solid cadetblue;
             margin: 100px auto;
@@ -39,18 +39,30 @@
     <script>
         // scrollWidth scrollHeight 内容的宽高
         let div = document.querySelector('div')
-        console.log(div.scrollWidth)   // 返回153
-        console.log(div.scrollHeight)   // 返回398
+        console.log(div.scrollWidth)   // 返回143 不带单位
+        console.log(div.scrollHeight)   // 返回388
         // 被卷去的头部和左侧
         // div.addEventListener('scroll',function() {
         //     console.log(this.scrollTop)
         //     // console.log(this.scrollLeft)
         // })
         console.log('-------------------------------')
-        console.log(div.offsetWidth)   // 返回190
-        console.log(div.offsetHeight)   // 返回190
+        // offset 盒子元素的大小 = 盒子本身的宽高 + padding + border
+        console.log(div.offsetWidth)   // 返回180
+        console.log(div.offsetHeight)   // 返回180
         console.log(div.offsetTop)
         console.log(div.offsetLeft)
+        console.log('-------------------------------')
+        // client 当前可视区域
+        console.log(div.clientWidth)   // 返回143
+        console.log(div.clientHeight)   // 返回160
+        console.log(div.clientTop)   // 返回10
+        console.log(div.clientLeft)   // 返回10
+
+        // resize事件
+        window.addEventListener('resize',function() {
+            console.log(document.documentElement.clientWidth)
+        })
     </script>
 </body>
 
