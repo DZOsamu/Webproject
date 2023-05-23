@@ -67,7 +67,20 @@
     </div>
 
     <script>
-        
+        // 1、获取元素
+        let items = document.querySelectorAll('.item')
+        let neirongs = document.querySelectorAll('.neirong')
+        // 2、左侧aside 点击谁，谁高亮
+        for (let i = 0; i < items.length; i++) {
+            items[i].addEventListener('click',function() {
+                // 找到上一个active 移除类
+                document.querySelector('.aside .active').classList.remove('active')
+                // 点击谁，谁添加类
+                this.classList.add('active')
+                // 3、右侧内容跟随走动
+                document.documentElement.scrollTop = neirongs[i].offsetTop
+            })
+        }
     </script>
 </body>
 
