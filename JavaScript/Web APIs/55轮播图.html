@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .main {
+            width: 700px;
+            margin: auto;
+            background-color: #000;
+        }
+
+        .slides {
+            width: 700px;
+            height: 320px;
+            position: relative;
+        }
+
+        .slides ul li {
+            /* display: none; */
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: all .3s;
+        }
+
+        .slides li.active {
+            /* display: block; */
+            opacity: 1;
+        }
+
+        .slides .extra {
+            width: 700px;
+            height: 53px;
+            line-height: 53px;
+            position: absolute;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 10;
+        }
+
+        .slides .extra h3 {
+            width: 82%;
+            margin: 0;
+            margin-right: 20px;
+            padding-left: 20px;
+            color: #98E404;
+            font-size: 28px;
+            float: left;
+            font-weight: 500;
+            font-family: "Microsoft Yahei", Tahoma, Geneva;
+        }
+
+        .slides .extra a {
+            width: 30px;
+            height: 30px;
+            display: block;
+            float: left;
+            margin-top: 12px;
+            margin-right: 3px;
+        }
+
+        .slides .extra .prev {
+            background: url(./55+images/icon.png) no-repeat;
+            background-size: 42px;
+            background-position: 5px -6px;
+        }
+
+        .slides .extra .prev:hover {
+            background: url(./55+images/icon1.png) no-repeat;
+            background-size: 42px;
+            background-position: 5px -6px;
+        }
+
+        .slides .extra .next {
+            background: url(./55+images/icon.png) no-repeat;
+            background-size: 42px;
+            background-position: -17px -6px;
+        }
+
+        .slides .extra .next:hover {
+            background: url(./55+images/icon1.png) no-repeat;
+            background-size: 42px;
+            background-position: -17px -6px;
+        }
+
+        .indicator {
+            padding: 10px 0;
+        }
+
+        .indicator ul {
+            list-style-type: none;
+            margin: 0 0 0 4px;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .indicator ul li {
+            position: relative;
+            float: left;
+            width: 60px;
+            margin: 0 4px 0 5px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .indicator li img {
+            display: block;
+            border: 0;
+            text-align: center;
+            width: 60px;
+        }
+
+        .indicator li .mask {
+            width: 60px;
+            height: 60px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .indicator li .border {
+            display: none;
+            width: 60px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            z-index: 20;
+            border: 3px solid #98E404;
+        }
+
+
+        .indicator .active .mask {
+            display: none;
+        }
+
+        .indicator .active .border {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="slides">
+            <ul>
+                <li class="active"><a href="#"><img src="./13images/01.jpg" alt="第1张图的描述信息"></a></li>
+                <li><a href="#"><img src="./13images/02.jpg" alt="第2张图的描述信息"></a></li>
+                <li><a href="#"><img src="./13images/03.jpg" alt="第3张图的描述信息"></a></li>
+                <li><a href="#"><img src="./13images/04.jpg" alt="第4张图的描述信息"></a></li>
+                <li><a href="#"><img src="./13images/05.jpg" alt="第5张图的描述信息"></a></li>
+                <li><a href="#"><img src="./13images/06.jpg" alt="第6张图的描述信息"></a></li>
+                <li><a href="#"><img src="./13images/07.jpg" alt="第7张图的描述信息"></a></li>
+                <li><a href="#"><img src="./13images/08.jpg" alt="第8张图的描述信息"></a></li>
+                <li><a href="#"><img src="./13images/09.jpg" alt="第9张图的描述信息"></a></li>
+                <li><a href="#"><img src="./13images/10.jpg" alt="第10张图的描述信息"></a></li>
+            </ul>
+
+            <div class="extra">
+                <h3>第1张图的描述信息</h3>
+                <a class="prev" href="javascript:;"></a>
+                <a class="next" href="javascript:;"></a>
+            </div>
+        </div>
+        <div class="indicator">
+            <ul>
+                <li class="active">
+                    <img src="./55+images/01.png" alt="">
+                    <span class="mask"></span>
+                    <span class="border"></span>
+                </li>
+                <li>
+                    <img src="./55+images/02.png" alt="">
+                    <span class="mask"></span>
+                    <span class="border"></span>
+                </li>
+                <li>
+                    <img src="./55+images/03.png" alt="">
+                    <span class="mask"></span>
+                    <span class="border"></span>
+                </li>
+                <li>
+                    <img src="./55+images/04.png" alt="">
+                    <span class="mask"></span>
+                    <span class="border"></span>
+                </li>
+                <li>
+                    <img src="./55+images/05.png" alt="">
+                    <span class="mask"></span>
+                    <span class="border"></span>
+                </li>
+                <li>
+                    <img src="./55+images/06.png" alt="">
+                    <span class="mask"></span>
+                    <span class="border"></span>
+                </li>
+                <li>
+                    <img src="./55+images/07.png" alt="">
+                    <span class="mask"></span>
+                    <span class="border"></span>
+                </li>
+                <li>
+                    <img src="./55+images/08.png" alt="">
+                    <span class="mask"></span>
+                    <span class="border"></span>
+                </li>
+                <li>
+                    <img src="./55+images/09.png" alt="">
+                    <span class="mask"></span>
+                    <span class="border"></span>
+                </li>
+                <li>
+                    <img src="./55+images/10.png" alt="">
+                    <span class="mask"></span>
+                    <span class="border"></span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // 需求一：小图标经过事件
+        // 鼠标经过小图标，当前高亮，其余变淡，添加类
+        let lis = document.querySelectorAll('.indicator li')
+        let piclis = document.querySelectorAll('.slides ul li')
+        let text = document.querySelector('.extra h3')
+        let next = document.querySelector('.next')
+        let prev = document.querySelector('.prev')
+        // 给多个li绑定事件
+        for (let i = 0; i < lis.length; i++) {
+            lis[i].addEventListener('mouseenter', function () {
+                // 选出唯一的active删除
+                document.querySelector('.indicator .active').classList.remove('active')
+                // 鼠标经过谁，给谁加上active
+                this.classList.add('active')
+
+                // 需求二：大图片跟着变化（一定要放到鼠标经过事件里面）
+                // 对应的大图片跟着显示，如果要过渡效果，用opacity效果，利用css淡入
+                // 选出唯一的active删除
+                document.querySelector('.slides ul .active').classList.remove('active')
+                // 鼠标经过谁，给谁加上active
+                piclis[i].classList.add('active')
+                text.innerHTML = `第${i + 1}张图的描述信息`
+
+                // 需求四：解决bug 
+                // 点击按钮播放下一张，但鼠标经过时播放乱序
+                index = i
+            })
+        }
+
+        // 需求三：右侧按钮播放效果
+        // 点击右侧按钮播放下一张
+        // 需要一个变化量 index 不断自增
+        // 如果到了最后一张，还原到第一张
+        let index = 0   // 全局变量 信号量 控制器 为了给左右按钮同时使用
+        next.addEventListener('click', function () {
+            index++
+            // 选出index小图片
+            if (index === 10) {
+                index = 0
+            }
+            // tips：索引号 = 索引号 % 数组长度（放到播放前面） 但只能判断右侧
+            // index = index % lis.length
+            document.querySelector('.indicator .active').classList.remove('active')
+            lis[index].classList.add('active')
+            // 选出index大图片
+            document.querySelector('.slides ul .active').classList.remove('active')
+            piclis[index].classList.add('active')
+            text.innerHTML = `第${index + 1}张图的描述信息`
+        })
+
+        prev.addEventListener('click', function () {
+            index--
+            选出index小图片
+            if (index < 0) {
+                index = lis.length - 1
+            }
+            // index = (lis.length + index) % lis.length
+            document.querySelector('.indicator .active').classList.remove('active')
+            lis[index].classList.add('active')
+            // 选出index大图片
+            document.querySelector('.slides ul .active').classList.remove('active')
+            piclis[index].classList.add('active')
+            text.innerHTML = `第${index + 1}张图的描述信息`
+        })
+    </script>
+</body>
+
+</html>
