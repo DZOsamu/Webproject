@@ -241,6 +241,7 @@
         let text = document.querySelector('.extra h3')
         let next = document.querySelector('.next')
         let prev = document.querySelector('.prev')
+        let main = document.querySelector('.main')
         // 给多个li绑定事件
         for (let i = 0; i < lis.length; i++) {
             lis[i].addEventListener('mouseenter', function () {
@@ -276,27 +277,54 @@
             }
             // tips：索引号 = 索引号 % 数组长度（放到播放前面） 但只能判断右侧
             // index = index % lis.length
-            document.querySelector('.indicator .active').classList.remove('active')
-            lis[index].classList.add('active')
+            common()
+            // document.querySelector('.indicator .active').classList.remove('active')
+            // lis[index].classList.add('active')
             // 选出index大图片
-            document.querySelector('.slides ul .active').classList.remove('active')
-            piclis[index].classList.add('active')
-            text.innerHTML = `第${index + 1}张图的描述信息`
+            // document.querySelector('.slides ul .active').classList.remove('active')
+            // piclis[index].classList.add('active')
+            // text.innerHTML = `第${index + 1}张图的描述信息`
         })
 
         prev.addEventListener('click', function () {
             index--
-            选出index小图片
+            // 选出index小图片
             if (index < 0) {
                 index = lis.length - 1
             }
             // index = (lis.length + index) % lis.length
+            common()
+            // document.querySelector('.indicator .active').classList.remove('active')
+            // lis[index].classList.add('active')
+            // 选出index大图片
+            // document.querySelector('.slides ul .active').classList.remove('active')
+            // piclis[index].classList.add('active')
+            // text.innerHTML = `第${index + 1}张图的描述信息`
+        })
+
+        // 需求五：因为左右按钮有大量相同操作，可以封装进一个函数里面
+        function common() {
             document.querySelector('.indicator .active').classList.remove('active')
             lis[index].classList.add('active')
-            // 选出index大图片
             document.querySelector('.slides ul .active').classList.remove('active')
             piclis[index].classList.add('active')
             text.innerHTML = `第${index + 1}张图的描述信息`
+        }
+
+        // 需求六：开启定时器
+        let timer = setInterval(function () {
+            // 自动调用右侧按钮的点击事件
+            next.click()
+        }, 1000)
+
+        // 需求七：鼠标经过停止计时器，鼠标离开开启定时器
+        main.addEventListener('mouseenter', function () {
+            clearInterval(timer)
+        })
+        main.addEventListener('mouseleave', function () {
+            timer = setInterval(function () {
+                next.click()
+            }, 1000)
         })
     </script>
 </body>
