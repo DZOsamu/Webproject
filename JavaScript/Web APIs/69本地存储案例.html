@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #721c24;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin: 20px 0;
+        }
+
+        table {
+            margin: 0 auto;
+            width: 800px;
+            border-collapse: collapse;
+            color: #004085;
+        }
+
+        th {
+            padding: 10px;
+            background: #cfe5ff;
+            font-size: 20px;
+            font-weight: 400;
+        }
+
+        td,
+        th {
+            border: 1px solid #b8daff;
+        }
+
+        td {
+            padding: 10px;
+            color: #666;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        tbody tr {
+            background: #fff;
+        }
+
+        tbody tr:hover {
+            background: #e1ecf8;
+        }
+
+        .info {
+            width: 900px;
+            margin: 50px auto;
+            text-align: center;
+        }
+
+        .info input,
+        .info select {
+            width: 80px;
+            height: 27px;
+            outline: none;
+            border-radius: 5px;
+            border: 1px solid #b8daff;
+            padding-left: 5px;
+            box-sizing: border-box;
+            margin-right: 15px;
+        }
+
+        .info button {
+            width: 60px;
+            height: 27px;
+            background-color: #004085;
+            outline: none;
+            border: 0;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .info .age {
+            width: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>新增学员</h1>
+    <form class="info" autocomplete="off">
+        姓名：<input type="text" class="uname" name="uname" />
+        年龄：<input type="text" class="age" name="age" />
+        性别:
+        <select name="gender" class="gender">
+            <option value="男">男</option>
+            <option value="女">女</option>
+        </select>
+        薪资：<input type="text" class="salary" name="salary" />
+        就业城市：<select name="city" class="city">
+            <option value="北京">北京</option>
+            <option value="上海">上海</option>
+            <option value="广州">广州</option>
+            <option value="深圳">深圳</option>
+            <option value="曹县">曹县</option>
+        </select>
+        <button class="add" type="button">录入</button>
+    </form>
+    <h1>就业榜</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>学号</th>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>性别</th>
+                <th>薪资</th>
+                <th>就业城市</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--    <tr>
+                <td>1001</td>
+                <td>欧阳霸天</td>
+                <td>19</td>
+                <td>男</td>
+                <td>15000</td>
+                <td>上海</td>
+                <td>
+                    <a href="javascript:">删除</a>
+                </td>
+            </tr> -->
+        </tbody>
+    </table>
+
+    <script>
+        // 需求一：读取本地存储的数据 封装成函数
+        function getLocalData() {
+            let data = localStorage.getItem('data')
+            // 如果本地存储有数据，则返回JSON.parse()之后的对象
+            if (data) {
+                return JSON.parse(data)
+            } else {
+                // 如果本地存储没有数据，则默认写入三条数据，注意存储利用JSON.stringify()存储JSON格式的数据
+                let arr = [
+                    { stuID: 1001, uname: '欧阳霸天', age: 19, gender: '男', salary: '20000', city: '上海' },
+                    { stuID: 1002, uname: '令狐霸天', age: 29, gender: '男', salary: '30000', city: '北京' },
+                    { stuID: 1003, uname: '诸葛霸天', age: 39, gender: '男', salary: '2000', city: '北京' }
+                ]
+                // 写入到本地存储里
+                localStorage.setItem('data', JSON.stringify(arr))
+            }
+        }
+
+        let tbody = document.querySelector('tbody')
+        let uname = document.querySelector('.uname')
+        let age = document.querySelector('.age')
+        let gender = document.querySelector('.gender')
+        let salary = document.querySelector('.salary')
+        let city = document.querySelector('.city')
+        function render() {
+            // 需求二：渲染模块
+            // 先读取本地存储数据，然后渲染
+            let arr = getLocalData()
+
+            tbody.innerHTML = ''
+            for (let i = 0; i < arr.length; i++) {
+                let tr = document.createElement('tr')
+                tr.innerHTML = `
+                    <td>${arr[i].stuID}</td>
+                    <td>${arr[i].uname}</td>
+                    <td>${arr[i].age}</td>
+                    <td>${arr[i].gender}</td>
+                    <td>${arr[i].salary}</td>
+                    <td>${arr[i].city}</td>
+                    <td>
+                        <a href="javascript:" id="${i}">删除</a>
+                    </td>
+                `
+                tbody.appendChild(tr)
+                uname.value = age.value = salary.value = ''
+                gender.value = '男'
+                city.value = '北京'
+            }
+        }
+        render()
+        let add = document.querySelector('.add')
+        add.addEventListener('click', function () {
+            // 需求三：添加模块
+            // 注意 先取的最新的本地存储模块 然后追加
+            let arr = getLocalData()
+
+            arr.push({
+                stuID: arr[arr.length - 1].stuID + 1,
+                uname: uname.value,
+                age: age.value,
+                gender: gender.value,
+                salary: salary.value,
+                city: city.value
+            })
+            // 存到本地里面
+            localStorage.setItem('data', JSON.stringify(arr))
+
+            render()
+        })
+        tbody.addEventListener('click', function (e) {
+            // 读取本地存储的数据
+            let arr = getLocalData()
+
+            if (e.target.tagName === 'A') {
+                arr.splice(e.target.id, 1)
+                // 存到本地里面
+                localStorage.setItem('data', JSON.stringify(arr))
+
+                render()
+            }
+        })
+    </script>
+</body>
+
+</html>
