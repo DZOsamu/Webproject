@@ -216,6 +216,12 @@
             let arr = getLocalData()
 
             if (e.target.tagName === 'A') {
+                // 第一条数据不允许删除
+                if(e.target.dataset.id === '0') {
+                    alert('当前数据不允许操作')
+                    return
+                }
+
                 // arr.splice(e.target.id, 1)
                 arr.splice(e.target.dataset.id, 1)
                 // 存到本地里面
