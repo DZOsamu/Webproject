@@ -181,7 +181,7 @@
                     <td>${arr[i].salary}</td>
                     <td>${arr[i].city}</td>
                     <td>
-                        <a href="javascript:" id="${i}">删除</a>
+                        <a href="javascript:" data-id="${i}">删除</a>
                     </td>
                 `
                 tbody.appendChild(tr)
@@ -205,6 +205,7 @@
                 salary: salary.value,
                 city: city.value
             })
+
             // 存到本地里面
             localStorage.setItem('data', JSON.stringify(arr))
 
@@ -215,7 +216,8 @@
             let arr = getLocalData()
 
             if (e.target.tagName === 'A') {
-                arr.splice(e.target.id, 1)
+                // arr.splice(e.target.id, 1)
+                arr.splice(e.target.dataset.id, 1)
                 // 存到本地里面
                 localStorage.setItem('data', JSON.stringify(arr))
 
