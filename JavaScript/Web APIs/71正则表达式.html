@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 定义正则表达式 reg里面存的是对象
+        let reg = /前端/
+        // 检测是否匹配 test()
+        let str1 = '我们都在学前端'
+        let str2 = '我们都在学IT'
+        console.log(reg.test(str1))   // true
+        console.log(reg.test(str2))   // false
+        // 检索exec()
+        console.log(reg.exec(str1))   // 返回的是数组
+
+        // 边界符
+        console.log(/哈/.test('二哈'))   // true
+        console.log(/^哈/.test('二哈'))   // false
+        console.log(/哈$/.test('二哈'))   // true
+        console.log(/哈以/.test('二哈以二'))   // true
+        console.log(/^哈以$/.test('哈二以'))   // false
+        console.log(/^哈以$/.test('哈以'))   // true
+        console.log('--------------------')
+
+        // 量词
+        // *   n >= 0
+        console.log(/^a*$/.test(''))   // true
+        console.log(/^a*$/.test('a'))   // true
+        console.log(/^a*$/.test('aaa'))   // true
+        console.log(/^a*$/.test('b'))   // false
+        console.log('--------------------')
+        // +   n >= 1
+        console.log(/^a+$/.test(''))   // false
+        console.log(/^a+$/.test('a'))   // true
+        console.log(/^a+$/.test('aaa'))   // true
+        console.log(/^a+$/.test('b'))   // false
+        console.log('--------------------')
+        // ?   0 || 1
+        console.log(/^a?$/.test(''))   // true
+        console.log(/^a?$/.test('a'))   // true
+        console.log(/^a?$/.test('aaa'))   // false
+        console.log(/^a?$/.test('b'))   // false
+        console.log('--------------------')
+        // {n}    只能是n次
+        console.log(/^a{3}$/.test('aa'))   // false
+        console.log(/^a{3}$/.test('aaa'))   // true
+        console.log(/^a{3}$/.test('aaaa'))   // false
+        console.log('--------------------')
+        // {n,}    >= n
+        console.log(/^a{3,}$/.test('aa'))   // false
+        console.log(/^a{3,}$/.test('aaa'))   // true
+        console.log(/^a{3,}$/.test('aaaa'))   // true
+        console.log('--------------------')
+        // {n,m}    >= n && <= m
+        console.log(/^a{3,4}$/.test('aa'))   // false
+        console.log(/^a{3,4}$/.test('aaa'))   // true
+        console.log(/^a{3,4}$/.test('aaaa'))   // true
+        console.log(/^a{3,4}$/.test('aaaaa'))   // false
+        console.log('--------------------')
+        
+        // 字符类 []
+        console.log(/[abc]/.test(''))   // false
+        console.log(/[abc]/.test('abc'))   // true
+        console.log(/[abc]/.test('andy'))   // true
+        console.log(/[abc]/.test('borrow'))   // true
+        console.log(/[abc]/.test('cry'))   // true
+        console.log(/[abc]/.test('die'))   // false
+        console.log('--------------------')
+        // 连字符 [-]
+        console.log(/^[abcd]$/.test('e'))   // abcd中只选一个为true 其他全是false
+        // 26个英文字母 [a-z]
+        // 26个英文字母大小写 [a-zA-Z]
+        // 26个英文字母大小写和数字和- [a-zA-Z0-9-]
+    </script>
+</body>
+</html>
