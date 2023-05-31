@@ -1215,6 +1215,16 @@
             </div>
         </div>
     </div>
+
+    <script>
+        // 如果本地存储有数据，则显示 你好，xxx
+        // 否则显示 请跳转到注册页面
+        let li = document.querySelector('.xtx_navs li:first-child')
+        let obj = JSON.parse(localStorage.getItem('pink'))
+        if(obj) {
+            li.innerHTML = `<a href="#">你好，${obj.username}</a>`
+        }
+    </script>
 </body>
 
 </html>
