@@ -37,12 +37,15 @@
         function fn1() {
             let num = 123
 
+            // 作用域链：
             return function fun1() {
                 console.log(num)
             }
         }
         let re = fn1()
         re()
+
+        // 函数在执行完毕后，会销毁其中的变量
     </script>
 </body>
 
