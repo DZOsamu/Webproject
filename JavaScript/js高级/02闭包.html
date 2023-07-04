@@ -42,8 +42,9 @@
                 console.log(num)
             }
         }
-        let re = fn1()
-        re()
+        let re = fn1()   // fn1返回的是一个函数，即function fun1() { console.log(num) }
+        re()   // 调用返回的函数fun1
+        console.log(re);
     </script>
 </body>
 
