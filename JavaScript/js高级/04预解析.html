@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 预解析（变量/函数提升）
+        console.log(n)   // undefined
+
+        var n = 2
+        console.log(n)   // 2
+
+        console.log('****************')
+
+        // console.log(m)   // 报错，m未定义
+
+        let m = 2
+        console.log(m)   // 2
+
+        console.log('****************')
+
+        fn()
+        function fn() {
+            console.log('函数');
+        }
+
+        console.log('****************')
+
+        function fun() {
+            console.log(a)   // 报错，a在初始化之前不能被使用
+            let a = 1   // 可以理解为，let定义的变量有被预解析，但是初始化之前不能被使用
+        }
+    </script>
+</body>
+
+</html>
