@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // function fn(a) {   // 传入什么打印什么
+        //     console.log(a)
+        // }
+        // fn('true')   // 传入什么a就是什么
+
+        // 回调函数：当作参数的函数
+        function fn(a) {
+            let num = 123
+
+            a(num)   // 调用a这个函数，打印num
+        }
+
+        // fn(function(){console.log(num)})   // 直接在log里面写num并不能访问到
+        fn(function (n) { console.log(n) })   // 给该回调函数传入参数n，函数执行，打印n
+        // 相当于a就是一个函数
+    </script>
+</body>
+
+</html>
