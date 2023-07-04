@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function fn() {
+            let num = 123
+            console.log(num)   // 打印
+
+            function fun() {
+                console.log(num)   // 函数未调用，不打印
+            }
+        }
+        fn()
+        // console.log(num)   // 无法访问，报错
+
+        console.log('**********************');
+
+        function fn() {
+            let num = 123
+
+            function fun() {
+                console.log(num)   // 打印num
+            }
+            fun()   // 函数调用
+        }
+        fn()
+
+        console.log('**********************');
+
+        function fn1() {
+            let num = 123
+
+            return function fun1() {
+                console.log(num)
+            }
+        }
+        let re = fn1()
+        re()
+    </script>
+</body>
+
+</html>
