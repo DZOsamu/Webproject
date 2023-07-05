@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // console.log(1,2,3,4,5)
+        function fn() {
+            // 在函数内部有一个特殊的对象arguments，是一个伪数组，用于接收所有的参数
+            // console.log(arguments)
+            for (let i = 0; i < arguments.length; i++) {
+                console.log(arguments[i])
+            }
+        }
+        fn(1, 2, 'a', 3, 'b')
+
+        // 求若干个数的最大值
+        function getMax() {
+            // 参数少/固定用形参
+            // 参数多/不固定用arguments
+
+            let max = arguments[0]
+
+            // 遍历比较
+            for (let j = 0; j < arguments.length; j++) {
+                if (max < arguments[j]) max = arguments[j]
+            }
+            console.log(max)
+        }
+        getMax(24, 132, 6, 16, 652, 48)   // 参数不确定
+    </script>
+</body>
+
+</html>
