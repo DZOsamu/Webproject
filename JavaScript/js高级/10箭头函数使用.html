@@ -8,6 +8,8 @@
 </head>
 
 <body>
+    <input type="button" value="点击">
+
     <script>
         // 涉及到回调函数的地方，都可以使用箭头函数
         // 例如定时器
@@ -31,21 +33,25 @@
         // fn(1, 2, 3)
 
         // 函数里的this指向调用者
-        let obj = {
-            uname: '阿七',
-            age: 21,
-            qi: function () {
-                // console.log(this)   // 下面箭头函数的this和这里的this指的是同一个作用域
+        // let obj = {
+        //     uname: '阿七',
+        //     age: 21,
+        //     qi: function () {
+        //         // console.log(this)   // 下面箭头函数的this和这里的this指的是同一个作用域
 
-                // window.setInterval(function () {   // this指向window
-                window.setInterval(() => {   // this指向obj
-                    console.log(this)
-                }, 1000)
-            }
-        }
-        obj.qi()
+        //         // window.setInterval(function () {   // this指向window
+        //         window.setInterval(() => {   // this指向obj
+        //             console.log(this)
+        //         }, 1000)
+        //     }
+        // }
+        // obj.qi()
 
-
+        let btn = document.querySelector('input')
+        // btn.addEventListener('click', () => {  // 报错
+        btn.addEventListener('click', function () {
+            this.style.backgroundColor = 'skyblue'
+        })
     </script>
 </body>
 
