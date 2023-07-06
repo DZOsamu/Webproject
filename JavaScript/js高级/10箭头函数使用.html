@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 涉及到回调函数的地方，都可以使用箭头函数
+        // 例如定时器
+        // window.setInterval(()=>{
+        //     console.log('函数体')
+        // },1000)
+
+        // 箭头函数不存在预解析，所以必须先定义再调用
+        // fn()   // 报错
+        // let fn = () => {
+        //     console.log(111)
+        // }
+        // fn()
+
+        // 箭头函数中，不存在arguments
+        // 可以使用剩余参数
+        // let fn = (...a) => {
+        //     // console.log(arguments)   // 报错
+        //     console.log(a)
+        // }
+        // fn(1, 2, 3)
+
+        // 函数里的this指向调用者
+        let obj = {
+            uname: '阿七',
+            age: 21,
+            qi: function () {
+                // console.log(this)   // 下面箭头函数的this和这里的this指的是同一个作用域
+
+                // window.setInterval(function () {   // this指向window
+                window.setInterval(() => {   // this指向obj
+                    console.log(this)
+                }, 1000)
+            }
+        }
+        obj.qi()
+
+
+    </script>
+</body>
+
+</html>
