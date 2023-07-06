@@ -9,6 +9,7 @@
 
 <body>
     <script>
+        // 数组解构赋值
         // 一一对应
         // let [a, b, c, d, e, f] = ['张飞', '赵云', '关羽', '张辽', '许诸', '典韦']
         // console.log(a, b, c, d, e, f)
@@ -32,6 +33,29 @@
         // 复杂情况
         let [, , a, b, [, c, d]] = ['张飞', '赵云', '关羽', '张辽', ['许诸', '典韦', '武松', '宋江']]
         console.log(a, b, c, d)
+
+
+        // 对象解构赋值
+        // let { uname, age, abc } = {
+        let { small: { uname } } = {
+            uname: '伍六七',
+            small: {
+                uname: '阿七'
+            },
+            gender: '男',
+            age: 21
+        }
+        // console.log(uname, age, abc)
+        console.log(uname)
+
+        function person({ uname, gender, age }) {
+            // let uname = obj.uname
+            // let gender = obj.gender
+            // let age = obj.age
+
+            console.log(`我叫${uname}，性别${gender}，今年${age}岁`)
+        }
+        person({ uname: '伍六七', gender: '男', age: 21 })
     </script>
 </body>
 
