@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 一一对应
+        // let [a, b, c, d, e, f] = ['张飞', '赵云', '关羽', '张辽', '许诸', '典韦']
+        // console.log(a, b, c, d, e, f)
+
+        // 变量多
+        // let [a, b, c, d, e, f, g, h, i] = ['张飞', '赵云', '关羽', '张辽', '许诸', '典韦']
+        // console.log(a, b, c, d, e, f, g, h, i)   // 多余的变量值为undefined
+
+        // 变量少
+        // let [a, b, c,] = ['张飞', '赵云', '关羽', '张辽', '许诸', '典韦']
+        // console.log(a, b, c)
+
+        // 按需取值
+        // let [, , a, b, , c] = ['张飞', '赵云', '关羽', '张辽', '许诸', '典韦']
+        // console.log(a, b, c)
+
+        // 剩余值
+        // let [, a, b, , ...c] = ['张飞', '赵云', '关羽', '张辽', '许诸', '典韦']
+        // console.log(a, b, c)
+
+        // 复杂情况
+        let [, , a, b, [, c, d]] = ['张飞', '赵云', '关羽', '张辽', ['许诸', '典韦', '武松', '宋江']]
+        console.log(a, b, c, d)
+    </script>
+</body>
+
+</html>
