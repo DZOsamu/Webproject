@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Person(uname, age, sex) {
+            this.name = uname
+            this.age = age
+            this.sex = sex
+            this.eat = function () {
+                console.log('吃饭')
+            }
+        }
+        // 构造函数内部为实例对象准备的成员叫静态成员
+
+        let p = new Person('阿七', 21, '男')
+
+        Person.language = '粤语'
+        Person.exist = '刺客伍六七'
+        Person.sleep = function () {
+            console.log('睡觉')
+        }
+        // 在构造函数身上直接添加的成员叫实例成员
+
+        console.log(p.uname)   //undefined
+        console.log(p.name)
+        console.log(p.exist)   //undefined
+        console.log(Person.exist)
+    </script>
+</body>
+
+</html>
