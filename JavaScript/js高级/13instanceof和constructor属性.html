@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function A(){}
+        function B(){}
+
+        let obj = new B()
+
+        // instanceof：用于判断对象是否是某一个函数的实例化
+        // 对象 instanceof 构造函数
+        console.log(obj instanceof A)
+        console.log(obj instanceof B)
+        
+        // constructor：指回构造函数本身
+        console.log(obj.constructor)
+        
+    </script>
+</body>
+</html>
