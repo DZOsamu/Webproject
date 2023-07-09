@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 字面量创建对象
+        let obj = {
+            // 键值对（属性名：属性值）
+            uname: '阿七',
+            age: 21,
+            sex: '男',
+            exist: function () {
+                console.log('刺客伍六七')
+                return 111
+            }
+        }
+
+        // 属性
+        console.log(obj.uname)
+        console.log(obj['age'])
+
+        // 方法
+        console.log(obj.exist())
+        console.log(obj.exist)
+
+        for (let key in obj) {
+            // console.log(obj.key)   // 四个undefined，因为obj里面没有key这个属性
+            console.log(obj[key])
+        }
+
+        // 小tip：关于遍历
+        let arr = [1, 2, 3, 4, 5]
+        for (let k in arr) {
+            console.log(arr[k])
+        }
+
+        // 构造函数创建对象
+        // 内置构造函数 Object 用于创造对象 没有任何属性方法
+        // 如果不需要参数，可以省略()
+        // let Obj = Object
+        let Obj = Object()
+        Obj.uname = '阿七'
+        Obj.age = 21
+        Obj.exist = function () {
+            console.log('刺客伍六七')
+        }
+        console.log(Obj)
+        // let Obj = Object({ uname: '阿七', age: 21 })
+    </script>
+</body>
+
+</html>
