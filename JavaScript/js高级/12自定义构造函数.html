@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Person(uname, age, sex) {
+            // 设置属性 用this
+            this.name = uname
+            this.age = age
+            this.sex = sex
+            this.eat = function () {
+                console.log('吃饭')
+            }
+            this.sleep = function () {
+                console.log('睡觉')
+            }
+        }
+
+        let p = new Person('阿七', 21, '男')   // 实例化对象
+        console.log(p)
+        let p1 = new Person('伍六七', 21, '男')
+        console.log(p1)
+    </script>
+</body>
+
+</html>
