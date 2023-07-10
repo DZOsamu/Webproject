@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 字面量创建数组
+        let arr = [1, 2, 3]
+
+        // Array构造函数创建数组
+        let ary = new Array('s', 'e', 'v', 'e', 'n')
+
+        // 实例方法
+        // concat 用于连接数组
+        let reArr = arr.concat(ary, '阿七')
+        console.log(reArr)
+
+        // join() 用于将数组的每个元素连接起来成为字符串
+        console.log(ary.join(''))
+        console.log(ary.join(' '))
+
+        // reverse() 用于反转数组顺序
+        console.log(ary.reverse())
+
+        // indexOf() 用于查找某个元素在数组中首次出现的位置
+        // lastIndexOf() 用于查找某个元素在数组中最后一次出现的位置
+        // 如果没有则返回-1
+        console.log(ary.indexOf('e'))
+        console.log(ary.indexOf('a'))
+        console.log(ary.lastIndexOf('e'))
+
+        // sort() 对数组进行排序
+        // 从第一个数开始比较大小，相等的再比较第二个数，以此类推
+        let arr0 = [23, 52, 17, 256, 45]
+        console.log(arr0.sort())
+        console.log(arr0.sort(function (a, b) { return a - b }))   //正序排列
+        console.log(arr0.sort(function (a, b) { return b - a }))   //倒序排列
+
+        // 静态方法
+        // Array.isArray() 判断一个对象是否是数组
+        let n = 1
+        console.log(Array.isArray(n))
+        console.log(Array.isArray(ary))
+
+        // Array.from(伪数组) 用于将伪数组转换成真数组
+        // 要转换成真数组必须要有length属性
+        // 伪数组用不了数组方法
+        let a = { 0: 'f', 1: 'r', 2: 'o', 3: 'm', length: 4 }
+        console.log(Array.from(a))
+
+        // 遍历数组，代替for循环
+        ary.forEach(
+            function (item, index, o) {
+                // 三个形参：数组元素，元素下标，数组本身
+                console.log(item, index, o)
+            }
+        )
+
+        let wlq = [
+            { uname: '阿七', age: 21, sex: '男' },
+            { uname: '十三', age: 17, sex: '女' },
+            { uname: '鸡大保', age: 40, sex: '男' },
+            { uname: '何大春', age: 22, sex: '男' },
+            { uname: '小飞鸡', age: 19, sex: '男' }
+        ]
+        wlq.forEach(item => {
+            console.log(`姓名${item.uname}，年龄${item.age}，性别${item.sex}`)
+        })
+    </script>
+</body>
+
+</html>
