@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // find 查找首次出现的满足条件的值并返回
+        let re = [2, 6, 4, 7, 9, 3].find(
+            function (item, index, o) {
+                // console.log(item, index, o)
+                return item > 5
+            }
+        )
+        console.log(re)
+
+        // findIndex 查找首次出现的满足条件的值并返回其位置
+        let re1 = [2, 6, 4, 7, 9, 3].findIndex(
+            function (item, index, o) {
+                return item > 5
+            }
+        )
+        console.log(re1)
+
+        // some 判断是否有满足条件的值
+        // 返回值1（真）或-1（假）
+        let re2 = [2, 6, 4, 7, 9, 3].some(
+            function (item, index, o) {
+                return item > 50
+            }
+        )
+        console.log(re2)
+
+        // every 判断所有元素是否都满足条件
+        // 返回值0（真）或1（假）
+        let re3 = [2, 6, 4, 7, 9, 3].every(
+            function (item, index, o) {
+                return item > 1
+            }
+        )
+        console.log(re3)
+
+        // filter 筛选满足条件的元素放到新数组里并返回新数组
+        let re4 = [2, 6, 4, 7, 9, 3].filter(
+            function (item, index, o) {
+                return item > 5
+            }
+        )
+        console.log(re4)
+
+        // map 遍历数组，每个元素都执行一遍回调函数后放到新数组里并返回新数组
+        let re5 = [2, 6, 4, 7, 9, 3].map(
+            function (item, index, o) {
+                return item * item
+            }
+        )
+        console.log(re5)
+    </script>
+</body>
+
+</html>
