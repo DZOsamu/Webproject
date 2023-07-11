@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let obj = {
+            head: 1,
+            eyes: 2,
+            legs: 2,
+            say: function () { console.log('chi') }
+        }
+
+        function Chinese() {
+            this.language = '汉语'
+        }
+
+        function Japanese() {
+            this.language = '日语'
+        }
+
+        // 原型
+        console.log(Chinese.prototype)
+        Chinese.prototype = obj   // 继承 赋给原型对象
+        Chinese.prototype.constructor = Chinese   // 指回构造函数
+        console.log(Chinese.prototype)
+
+        // 实例化
+        let c = new Chinese()
+        console.log(c)
+        c.say()
+
+        console.log(Japanese.prototype)
+        Japanese.prototype = obj
+        Japanese.prototype.constructor = Japanese
+        console.log(Japanese.prototype)
+
+        // 实例化
+        let j = new Japanese()
+        console.log(j)
+        j.say()
+
+        // obj赋给两个原型对象的是地址，相当于这三者是同一个数据
+        // 当修改Japanese的时候，前面赋给Chinese的值也会改变
+    </script>
+</body>
+
+</html>
