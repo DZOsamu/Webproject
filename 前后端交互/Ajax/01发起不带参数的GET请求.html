@@ -14,7 +14,7 @@
     <script>
         $(function () {
             $('#btnGET').on('click', function () {
-                $.get('http://hmajax.itheima.net/api/books', function (res) {
+                $.get('http://hmajax.itheima.net/api/books?creator=111', function (res) {
                     console.log(res)
                 })
             })
