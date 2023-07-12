@@ -14,7 +14,7 @@
     <script>
         $(function () {
             $('#btnGETINFO').on('click', function () {
-                $.get('http://www.liulongbin.top:3006/api/getbooks', { id: 1 }, function (res) {
+                $.get('http://hmajax.itheima.net/api/books?creator=111', { id: 1 }, function (res) {
                     console.log(res)
                 })
             })

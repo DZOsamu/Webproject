@@ -43,13 +43,26 @@
                 <th>操作</th>
             </tr>
         </thead>
-        <tbody>
-            <tr>
-                <td></td>
-            </tr>
-        </tbody>
+        <tbody id="tb"></tbody>
     </table>
 
+    <script>
+        $(function () {
+            // 获取图书列表数据
+            function getBookList() {
+                $.get('http://www.liulongbin.top:3006/api/getbooks', function (res) {
+                    if (res.status !== 200) return alert('获取数据失败！')
+
+                    var rows = []
+                    $.each(res.data, function (i, item) {
+                        rows.push('<tr><td>' + item.id + '</td><td>' + item.bookname + '</td><td>' + item.author + '</td><td>' + item.publisher + '</td><td><a href="javascript:;">删除</a></td></tr>')
+                    })
+                    $('#tb').empty().append(rows.join(''))
+                })
+            }
+            getBookList()
+        })
+    </script>
 </body>
 
 </html>
