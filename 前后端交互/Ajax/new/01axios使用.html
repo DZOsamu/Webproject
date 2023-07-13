@@ -28,6 +28,17 @@
       }).then((result) => {
          console.log(result.data.data)
       })
+
+      axios({
+         url: 'http://hmajax.itheima.net/api/city',
+         // 查询参数
+         params:{
+            pname:'湖北省'
+         }
+      }).then((result) => {
+         console.log(result.data.list)
+         document.querySelector('.my-p').innerHTML = result.data.list.join('<br>')
+      })
    </script>
 </body>
 
