@@ -20,8 +20,13 @@
          console.log(result)
          console.log(result.data.list)
          console.log(result.data.list.join('<br>'))
-         
          document.querySelector('.my-p').innerHTML = result.data.list.join('<br>')
+      })
+
+      axios({
+         url: 'http://hmajax.itheima.net/api/news'
+      }).then((result) => {
+         console.log(result.data.data)
       })
    </script>
 </body>
