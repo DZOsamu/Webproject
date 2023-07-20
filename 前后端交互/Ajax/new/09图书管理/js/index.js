@@ -1,8 +1,6 @@
-/**
- * 目标1：渲染图书列表
- *  1.1 获取数据
- *  1.2 渲染数据
- */
+// 目标1：渲染图书列表
+// 1.1 获取数据
+// 1.2 渲染数据
 
 // 定义一个全局常量 外号
 const creator = '池舟'
@@ -39,6 +37,6 @@ function getBooksList() {
       document.querySelector('.list').innerHTML = htmlStr
    })
 }
-
 // 网页加载运行，获取并渲染列表一次
 getBooksList()
+
