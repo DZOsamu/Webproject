@@ -27,7 +27,7 @@ function getBooksList() {
             <td>${item.bookname}</td>
             <td>${item.author}</td>
             <td>${item.publisher}</td>
-            <td>
+            <td data-id=${item.id}>
                <span class="del">删除</span>
                <span class="edit">编辑</span>
             </td>
@@ -48,12 +48,14 @@ getBooksList()
 // 2.1 创建弹框对象
 const addModalDom = document.querySelector('.add-modal')
 const addModal = new bootstrap.Modal(addModalDom)
+
 // 保存按钮->点击->隐藏弹框
 document.querySelector('.add-btn').addEventListener('click', () => {
    // 2.2 收集表单数据，并提交到服务器保存
    const addForm = document.querySelector('.add-form')
    const bookObj = serialize(addForm, { hash: true, empty: true })
-   console.log(bookObj)
+   // console.log(bookObj)
+
    // 提交到服务器
    axios({
       url: 'http://hmajax.itheima.net/api/books',
@@ -63,7 +65,8 @@ document.querySelector('.add-btn').addEventListener('click', () => {
          creator
       }
    }).then(result => {
-      console.log(result)
+      // console.log(result)
+
       // 2.3 添加成功后，重新请求并渲染图书列表
       getBooksList()
 
@@ -73,5 +76,33 @@ document.querySelector('.add-btn').addEventListener('click', () => {
       // 隐藏弹框
       addModal.hide()
    })
+})
 
+// 目标3：删除图书
+// 3.1 删除元素绑定事件->获取图书id
+// 3.2 调用删除接口
+// 3.3 刷新图书列表
+
+// 3.1 删除元素->点击（动态事件 事件委托 绑定给父级即tbody）
+document.querySelector('.list').addEventListener('click', e => {
+   // 获取触发事件的目标元素
+   // console.log(e.target)
+
+   // 判断点击的是删除
+   if(e.target.classList.contains('del')){
+      // console.log(111)
+
+      // 获取图书id（自定义属性id）
+      const theId = e.target.parentNode.dataset.id
+      // console.log(theId)
+
+      // 调用删除窗口
+      axios({
+         url:`http://hmajax.itheima.net/api/books/${theId}`,
+         method:'DELETE'
+      }).then(()=>{
+         // 3.3 刷新图书列表
+         getBooksList()
+      })
+   }
 })
