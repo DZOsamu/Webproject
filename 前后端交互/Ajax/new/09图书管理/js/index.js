@@ -40,3 +40,38 @@ function getBooksList() {
 // 网页加载运行，获取并渲染列表一次
 getBooksList()
 
+// 目标2：新增图书
+// 2.1 新增弹框->显示和隐藏
+// 2.2 收集表单数据，并提交到服务器保存
+// 2.3 刷新图书列表
+
+// 2.1 创建弹框对象
+const addModalDom = document.querySelector('.add-modal')
+const addModal = new bootstrap.Modal(addModalDom)
+// 保存按钮->点击->隐藏弹框
+document.querySelector('.add-btn').addEventListener('click', () => {
+   // 2.2 收集表单数据，并提交到服务器保存
+   const addForm = document.querySelector('.add-form')
+   const bookObj = serialize(addForm, { hash: true, empty: true })
+   console.log(bookObj)
+   // 提交到服务器
+   axios({
+      url: 'http://hmajax.itheima.net/api/books',
+      method: 'POST',
+      data: {
+         ...bookObj,
+         creator
+      }
+   }).then(result => {
+      console.log(result)
+      // 2.3 添加成功后，重新请求并渲染图书列表
+      getBooksList()
+
+      // 重置表单
+      addForm.reset()
+
+      // 隐藏弹框
+      addModal.hide()
+   })
+
+})
