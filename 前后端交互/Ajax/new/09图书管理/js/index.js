@@ -89,7 +89,7 @@ document.querySelector('.list').addEventListener('click', e => {
    // console.log(e.target)
 
    // 判断点击的是删除
-   if(e.target.classList.contains('del')){
+   if (e.target.classList.contains('del')) {
       // console.log(111)
 
       // 获取图书id（自定义属性id）
@@ -98,11 +98,68 @@ document.querySelector('.list').addEventListener('click', e => {
 
       // 调用删除窗口
       axios({
-         url:`http://hmajax.itheima.net/api/books/${theId}`,
-         method:'DELETE'
-      }).then(()=>{
+         url: `http://hmajax.itheima.net/api/books/${theId}`,
+         method: 'DELETE'
+      }).then(() => {
          // 3.3 刷新图书列表
          getBooksList()
       })
    }
+})
+
+// 目标4：编辑图书
+// 4.1 编辑弹框->显示和隐藏
+// 4.2 获取当前编辑图书的数据->回显到编辑表单中
+// 4.3 提交保存的修改，刷新列表
+
+// 4.1 编辑弹框->显示和隐藏
+const editDom = document.querySelector('.edit-modal')
+const editModal = new bootstrap.Modal(editDom)
+// 编辑元素->点击->弹框显示
+document.querySelector('.list').addEventListener('click', e => {
+   // 判断点击的是否为编辑元素
+   if (e.target.classList.contains('edit')) {
+      // 4.2 获取当前编辑图书的数据->回显到编辑表单中
+      const theId = e.target.parentNode.dataset.id
+      // console.log(theId)
+      axios({
+         url: `http://hmajax.itheima.net/api/books/${theId}`
+      }).then(result => {
+         const bookObj = result.data.data
+         // document.querySelector('.edit-form .bookname').value = bookObj.bookname
+         // document.querySelector('.edit-form .author').value = bookObj.author
+         // document.querySelector('.edit-form .publisher').value = bookObj.publisher
+         // 数据对象属性和标签类名一致
+         // 遍历数据对象，使用属性去获取对应的标签，快速赋值
+         const keys = Object.keys(bookObj)   // ['id', 'bookname', 'author', 'publisher']
+         keys.forEach(key => {
+            document.querySelector(`.edit-form .${key}`).value = bookObj[key]
+         })
+      })
+
+      editModal.show()
+   }
+})
+// 修改按钮->点击->隐藏弹框
+document.querySelector('.edit-btn').addEventListener('click', () => {
+   // 4.3 提交保存的修改，刷新列表
+   const editForm = document.querySelector('.edit-form')
+   const { id, bookname, author, publisher } = serialize(editForm, { hash: true, empty: true })
+   // 保存正在编辑的图书id，隐藏起来：无需让用户修改
+   // <input type="hidden" class="id" name="id" value="222595">
+   axios({
+      url: `http://hmajax.itheima.net/api/books/${id}`,
+      method: 'PUT',
+      data: {
+         bookname,
+         author,
+         publisher,
+         creator
+      }
+   }).then(() => {
+      // 修改成功以后，重新获取并刷新列表
+      getBooksList()
+      // 隐藏弹框
+      editModal.hide()
+   })
 })
