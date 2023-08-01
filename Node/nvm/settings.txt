@@ -1,0 +1,5 @@
+root: E:\study\Webproject\Node\nvm
+path: E:\study\Webproject\nodejs
+proxy: none
+node_mirror: npm.taobao.org/mirrors/node
+npm_mirror: npm.taobao.org/mirrors/npm
