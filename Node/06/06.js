@@ -1,11 +1,13 @@
 // 目标：基于Web服务，开发提供网页资源的功能
 
+const fs = require('fs')
+const path = require('path')
 // 1.基于http模块，创建Web服务
 const http = require('http')
 const server = http.createServer()
 server.on('request', (req, res) => {
    // 2.使用req.url获取请求资源路径，并读取index.html里字符串内容返回给请求方
-   if (req.url === 'index.html') {
+   if (req.url === '/index.html') {
       fs.readFile(path.join(__dirname, '../04/dist/index.html'), (err, data) => {
          if (err) console.log(err)
          else {
