@@ -7,10 +7,9 @@ const server = http.createServer()
 // 1.2 监听request请求事件，设置响应头和响应体
 server.on('request', (req, res) => {
    // 设置响应头：内容类型，普通文本：编码格式为utf-8
-   res.setHeader('Content-Type', 'text/plain;charest=utf-8')
+   res.setHeader('Content-Type', 'text/plain;charset=utf-8')
    // 设置响应体内容，结束本次请求与响应
-   // res.end('欢迎使用 Node.js 和 http模块 创建的 Web服务 ~')
-   res.end('Welcome to the Web service created by Node.js and http module.')
+   res.end('欢迎使用 Node.js 和 http模块 创建的 Web服务 ~')
 })
 // 1.3 配置端口号并启动Web服务
 server.listen(3000, () => {
