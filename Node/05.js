@@ -12,8 +12,8 @@ server.on('request', (req, res) => {
    res.end('欢迎使用 Node.js 和 http模块 创建的 Web服务 ~')
 })
 // 1.3 配置端口号并启动Web服务
-server.listen(3000, () => {
+server.listen(3001, () => {
    console.log('Web服务启动成功了')
 })
 
-// 1.4 浏览器请求（http://localhost:3000）测试
+// 1.4 浏览器请求（http://localhost:3001）测试
