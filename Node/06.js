@@ -8,7 +8,7 @@ const server = http.createServer()
 server.on('request', (req, res) => {
    // 2.使用req.url获取请求资源路径，并读取index.html里字符串内容返回给请求方
    if (req.url === '/index.html') {
-      fs.readFile(path.join(__dirname, '../04/dist/index.html'), (err, data) => {
+      fs.readFile(path.join(__dirname, '04/dist/index.html'), (err, data) => {
          if (err) console.log(err)
          else {
             // 设置响应内容类型 htm1超文本字符串 让浏览器解析成标签网页等
