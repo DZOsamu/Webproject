@@ -7,5 +7,6 @@ module.exports = {
    output: {
       path: path.resolve(__dirname, 'dist'),
       filename: './login/index.js',
+      // clean: true   // 补充：生成打包后内容之前，清空输出目录
    },
 }
