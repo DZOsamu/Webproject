@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+
+<body>
+   <!-- 文件选择元素 -->
+   <input type="file" class="upload">
+   <img src="" alt="" class="img">
+
+   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+   <script>
+      // 文件选择元素->change改变事件
+      document.querySelector('.upload').addEventListener('change', e => {
+         // 1.获取图片文件
+         // console.log(e.target)
+         // console.log(e.target.files)
+         console.log(e.target.files[0])
+
+         // 2.使用FormData携带图片文件
+         const fd = new FormData()
+         fd.append('img', e.target.files[0])
+
+         // 3.提交到服务器，获取图片url网址使用
+         axios({
+            url: 'http://hmajax.itheima.net/api/uploadimg',
+            method: 'POST',
+            data: fd
+         }).then(result => {
+            console.log(result)
+
+            // 取出图片url网址，用img标签加载显示
+            const imgUrl = result.data.data.url
+            document.querySelector('.img').src = imgUrl
+         })
+      })
+
+      // 注意：图片大小必须在2MB以内，否则会报错
+   </script>
+</body>
+
+</html>
