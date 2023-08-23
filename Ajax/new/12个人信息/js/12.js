@@ -1,11 +1,10 @@
 // 1.信息渲染
-const creator = '小黑'
-
+const creator = '小池'
 // 获取数据
 axios({
   url: 'http://hmajax.itheima.net/api/settings',
   params: {
-    // creator: '小黑'   // 会多次用到，直接定义一个全局变量
+    // creator: '小池'   // 会多次用到，直接定义一个全局变量
     creator
   }
 }).then(result => {
@@ -51,5 +50,28 @@ document.querySelector('.upload').addEventListener('change', e => {
     const imgUrl = result.data.data.avatar
     // 把头像回显到页面上
     document.querySelector('.prew').src = imgUrl
+  })
+})
+
+// 3.提交表单
+// 保存修改->点击事件
+document.querySelector('.submit').addEventListener('click', () => {
+  // 收集表单信息 使用form-serialize插件
+  const userForm = document.querySelector('.user-form')
+  const userObj = serialize(userForm, { hash: true, empty: true })
+  userObj.creator = creator
+  // 性别数字字符串转成数字类型
+  userObj.gender = +userObj.gender
+  console.log(userObj);
+  // 提交到服务器保存
+  axios({
+    url: 'http://hmajax.itheima.net/api/settings',
+    method: 'PUT',
+    data: userObj
+  // }).then(result => {
+  //   console.log(result)
+    // const imgUrl = result.data.data.avatar
+    // 把头像回显到页面上
+    // document.querySelector('.prew').src = imgUrl
   })
 })
