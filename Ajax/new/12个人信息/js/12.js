@@ -68,10 +68,13 @@ document.querySelector('.submit').addEventListener('click', () => {
     url: 'http://hmajax.itheima.net/api/settings',
     method: 'PUT',
     data: userObj
-  // }).then(result => {
-  //   console.log(result)
-    // const imgUrl = result.data.data.avatar
-    // 把头像回显到页面上
-    // document.querySelector('.prew').src = imgUrl
+  }).then(result => {
+    // 4.提示框
+    // 创建toast对象
+    const toastDom = document.querySelector('.my-toast')
+    const toast = new bootstrap.Toast(toastDom)
+
+    // 调用show方法 显示提示框
+    toast.show()
   })
 })
