@@ -9,14 +9,28 @@
 
 <body>
    <script>
-      // 1.定义函数 接收配置对象 返回Promise对象
+      // 1.封装axios函数 获取省份列表
+      // 2.传递查询参数 获取地区列表
+
+      // 1.1 定义函数 接收配置对象 返回Promise对象
       function myAxios(config) {
          return new Promise((resolve, reject) => {
-            // 2.发起XHR请求 默认方法为GET
+            // 1.2 发起XHR请求 默认方法为GET
             const xhr = new XMLHttpRequest()
+
+            // 2.1 判断params选项 携带查询参数 判断要写在使用url地方之前
+            if (config.params) {
+               // 2.使用URLSearchParams转换 并携带到url上
+               const paramsObj = new URLSearchParams(config.params)
+               const queryString = paramsObj.toString()
+               // 把查询参数字符串 拼接在 url? 后面
+               config.url += `?${queryString}`
+
+            }
+
             xhr.open(config.method || 'GET', config.url)   // 配置对象里有方法就是其方法，没有就是GET方法
             xhr.addEventListener('loadend', () => {
-               // 3.调用成功/失败的处理程序
+               // 1.3 调用成功/失败的处理程序
                if (xhr.status >= 200 && xhr.status < 300) {
                   resolve(JSON.parse(xhr.response))
                } else {
@@ -27,10 +41,25 @@
          })
       }
 
-      // 4.调用函数 获取省份列表
+      // 调用函数 获取省份列表
+      // myAxios({
+      //    url: 'http://hmajax.itheima.net/api/province'
+      //    // url: 'http://hmajax.itheima.net/api/province12121'
+      // }).then(result => {
+      //    console.log(result)
+      //    document.querySelector('body').innerHTML = result.list.join('<br>')
+      // }).catch(error => {
+      //    console.log(error)
+      //    document.querySelector('body').innerHTML = error.message
+      // })
+
+      // 调用函数 获取省地区列表
       myAxios({
-         url: 'http://hmajax.itheima.net/api/province'
-         // url: 'http://hmajax.itheima.net/api/province12121'
+         url: 'http://hmajax.itheima.net/api/area',
+         params: {
+            pname: '湖北省',
+            cname: '襄阳市'
+         }
       }).then(result => {
          console.log(result)
          document.querySelector('body').innerHTML = result.list.join('<br>')
