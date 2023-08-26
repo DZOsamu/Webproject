@@ -100,3 +100,23 @@ function getWeather(cityCode) {
 }
 // 默认城市 北京 城市编码为110100
 getWeather('110100')
+
+// 2.搜索城市列表
+// 2.1 绑定input事件 获取关键字
+document.querySelector('.search-city').addEventListener('input', (e) => {
+   console.log(e.target.value)
+   // 2.2 获取展示 城市列表数据
+   myAxios({
+      url: 'http://hmajax.itheima.net/api/weather/city',
+      params: {
+         city: e.target.value
+      }
+   }).then(result => {
+      console.log(result)
+      const liStr = result.data.map(item => {
+         return `<li class="city-item">${item.name}</li>`
+      }).join('')
+      console.log(liStr)
+      document.querySelector('.search-list').innerHTML = liStr
+   })
+})
