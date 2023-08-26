@@ -114,9 +114,21 @@ document.querySelector('.search-city').addEventListener('input', (e) => {
    }).then(result => {
       console.log(result)
       const liStr = result.data.map(item => {
-         return `<li class="city-item">${item.name}</li>`
+         return `<li class="city-item" data-code="${item.code}">${item.name}</li>`
       }).join('')
       console.log(liStr)
       document.querySelector('.search-list').innerHTML = liStr
    })
+})
+
+// 3.切换城市天气
+// 3.1 绑定城市点击事件，获取城市code值
+document.querySelector('.search-list').addEventListener('click', (e) => {
+   if (e.target.classList.contains('city-item')) {
+      // 只有点击了城市li，才会实现
+      const cityCode = e.target.dataset.code
+      console.log(cityCode)
+      // 3.2 调用获取并展示天气的函数
+      getWeather(cityCode)
+   }
 })
