@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+
+<body>
+   <script>
+      // 1.创建Promise对象 模拟请求省份名字
+      const p1 = new Promise((resolve, reject) => {
+         setTimeout(() => {
+            resolve('北京市')
+         }, 2000)
+      })
+
+      // 2.获取省份名字
+      const p2 = p1.then(result => {
+         console.log(result)
+
+         // 3.创建 Promise对象 模拟请求城市名字
+         // return Promise对象的最终状态和结果 会影响新的Promise对象
+         return new Promise((resolve, reject) => {
+            setTimeout(() => {
+               resolve(result + ' --- 北京')
+            }, 2000)
+         })
+      })
+
+      // 4.获取城市名字
+      p2.then(result => {
+         console.log(result)
+      })
+
+      console.log(p1 === p2)   // false 说明p1和p2的地址不一样，也就是.then()的结果是创建了一个新的Promise对象
+   </script>
+</body>
+
+</html>
