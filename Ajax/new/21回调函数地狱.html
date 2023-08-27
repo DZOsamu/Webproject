@@ -33,15 +33,19 @@
 
          // 2.获取默认第一个城市的名字
          axios({ url: 'http://hmajax.itheima.net/api/city', params: { pname } }).then(result => {
+            console.log(result)
             const cname = result.data.list[0]
             document.querySelector('.city').innerHTML = cname
 
             // 3.获取默认第一个地区的名字
-            axios({ url: 'http://hmajax.itheima.net/api/area', params: { pname, cname } }).then(result => {
+            axios({ url: 'http://hmajax.itheima.net/api/area1', params: { pname, cname } }).then(result => {
+               console.log(result)
                const aname = result.data.list[0]
                document.querySelector('.area').innerHTML = aname
             })
          })
+      }).catch(error => {
+         console.dir(error)
       })
    </script>
 </body>
