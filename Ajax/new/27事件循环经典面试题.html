@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+
+<body>
+   <script>
+      console.log(1)
+      setTimeout(() => {   // 异步->浏览器->宏任务队列
+         console.log(2)
+         const p = new Promise(resolve => resolve(3))   // 同步
+         p.then(result => console.log(result))   // 异步->微任务队列 result->3
+      }, 0)
+      const p = new Promise(resolve => {   // 同步
+         setTimeout(() => {   // 异步->浏览器->宏任务队列
+            console.log(4)
+         }, 0)
+         resolve(5)
+      })
+      p.then(result => console.log(result))   // 异步->微任务队列 result->5
+      const p2 = new Promise(resolve => resolve(6))   // 同步
+      p2.then(result => console.log(result))   // 异步->微任务队列 result->6
+      console.log(7)
+      // 1 7 5 6 2 3 4
+   </script>
+</body>
+
+</html>
