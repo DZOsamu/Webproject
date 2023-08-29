@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+
+<body>
+   <ul class="my-ul"></ul>
+   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+   <script>
+      // code：
+      // 北京-110100
+      // 上海-310100
+      // 广州-440100
+      // 深圳-440300
+      // 1.求城市天气 得到Promise对象
+      const bjPromise = axios({ url: 'http://hmajax.itheima.net/api/weather', params: { city: '110100' } })
+      const shPromise = axios({ url: 'http://hmajax.itheima.net/api/weather', params: { city: '310100' } })
+      // const gzPromise = axios({ url: 'http://hmajax.itheima.net/api/weather121', params: { city: '440100' } })
+      const gzPromise = axios({ url: 'http://hmajax.itheima.net/api/weather', params: { city: '440100' } })
+      const szPromise = axios({ url: 'http://hmajax.itheima.net/api/weather', params: { city: '440300' } })
+
+      // 2.用Promise.all合并多个Promise对象
+      const p = Promise.all([bjPromise, shPromise, gzPromise, szPromise])
+      // 结果数组顺序和合并时的顺序是一样的
+      p.then(result => {
+         console.log(result)
+         const htmlStr = result.map(item => {
+            return `<li>${item.data.data.area}---${item.data.data.weather}</li>`
+         }).join('')
+         document.querySelector('.my-ul').innerHTML = htmlStr
+      }).catch(error => {
+         console.dir(error)
+      })
+   </script>
+</body>
+
+</html>
