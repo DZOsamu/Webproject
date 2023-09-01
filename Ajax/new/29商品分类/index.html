@@ -42,9 +42,44 @@
   <script>
     // 1.获取一级分类数据
     axios({
-      url:'http://hmajax.itheima.net/api/category/top'
-    }).then(result=>{
+      url: 'http://hmajax.itheima.net/api/category/top'
+    }).then(result => {
       console.log(result)
+      // 2.遍历id 创建获取二级分类请求
+      const secPromiseList = result.data.data.map(item => {
+        return axios({
+          url: 'http://hmajax.itheima.net/api/category/sub',
+          params: {
+            id: item.id   // 一级分类的id
+          }
+        })
+      })
+      console.log(secPromiseList)   // 数组里的是二级分类的对象，共有九个
+      // 3.合并所有二级分类Promise对象
+      const p = Promise.all(secPromiseList)
+      p.then(result => {
+        console.log(result)
+        // 4.等待同时成功后 渲染页面
+        const htmlStr = result.map(item => {
+          const dataObj = item.data.data   // 取出关键数据
+          return `
+          <div class="item">
+            <h3>${dataObj.name}</h3>
+            <ul>
+              ${dataObj.children.map(item => {
+            return `<li>
+                      <a href="javascript:;">
+                        <img src="${item.picture}">
+                        <p>${item.name}</p>
+                      </a>
+                    </li>`
+          }).join('')}
+            </ul>
+          </div>`
+        }).join('')
+        console.log(htmlStr)
+        document.querySelector('.sub-list').innerHTML = htmlStr
+      })
     })
   </script>
 </body>
