@@ -61,7 +61,7 @@
         console.log(result)
         // 4.等待同时成功后 渲染页面
         const htmlStr = result.map(item => {
-          const dataObj = item.data.data   // 取出关键数据
+          const dataObj = item.data.data   // 取出关键数据对象
           return `
           <div class="item">
             <h3>${dataObj.name}</h3>
