@@ -1,5 +1,4 @@
 // 1.验证码登录
-
 // 1.1 在 utils/request.js 配置 axios 请求基地址
 
 // 1.2 收集手机号和验证码数据
@@ -17,6 +16,14 @@ document.querySelector('.btn').addEventListener('click', () => {
       // 1.4 使用 Bootstrap 的 Alert 警告框反馈结果给用户
       myAlert(true, '登录成功')
       // console.log(result)
+
+      // 登录成功后，保存token令牌字符串到本地，并跳转到内容列表页面
+      localStorage.setItem('token', result.data.data.token)
+      setTimeout(() => {
+         // 延迟跳转，让alert警告框停留一会儿
+         location.href = '../content/index.html'
+      }, 1000)
+
    }).catch(error => {
       myAlert(false, error.response.data.message)
       // console.dir(error.response.data.message)
