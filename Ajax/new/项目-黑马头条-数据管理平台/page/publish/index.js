@@ -7,11 +7,12 @@ async function setChannleList() {
    console.log(res)
    const htmlStr = `<option value="" selected="">请选择文章频道</option>` + res.data.channels.map(item => `<option value="${item.id}">${item.name}</option>`).join('')
    console.log(htmlStr)
+
+   // 1.2 展示到下拉菜单中
    document.querySelector('.form-select').innerHTML = htmlStr
 }
 // 网页运行后，默认调用一次
 setChannleList()
-// 1.2 展示到下拉菜单中
 
 
 
