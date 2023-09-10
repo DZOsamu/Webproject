@@ -42,16 +42,57 @@ document.querySelector('.rounded').addEventListener('click', () => {
    document.querySelector('.img-file').click()
 })
 
+// 3.发布文章保存
+// 3.1 基于form-serialize插件收集表单数据对象
+document.querySelector('.send').addEventListener('click', async e => {
+   const form = document.querySelector('.art-form')
+   const data = serialize(form, { hash: true, empty: true })
+   // console.log(data)
+
+   // 发布文章的时候 不需要id属性 可以删除
+   delete data.id
+   console.log(data)
+
+   // 封面图片的信息不在form里，需要自己收集
+   data.cover = {
+      type: 1,   // 封面类型
+      images: [document.querySelector('.rounded').src]   // 封面图片url
+   }
+
+   try {
+      // 3.2 基于axios提交到服务器保存
+      const res = await axios({
+         url: '/v1_0/mp/articles',
+         method: 'POST',
+         data
+      })
+      console.log(res)
+
+      // 3.3 调用Alert警告框反馈结果给用户
+      myAlert(true, '发布成功')
+
+      // 3.4 重置表单并跳转到列表页
+      form.reset()   // 只能清空表单元素
+      // 封面重置
+      document.querySelector('.rounded').src = ''
+      document.querySelector('.rounded').classList.remove('show')
+      document.querySelector('.place').classList.remove('hide')
+      // 富文本编辑器重置
+      editor.setHtml('')
+      setTimeout(() => {
+         location.href = '../content/index.html'
+      }, 1000)
+   } catch (error) {
+      console.dir(error);
+      myAlert(false, error.response.data.message)
+   }
+
+})
 
 
 
-/**
- * 目标3：发布文章保存
- *  3.1 基于 form-serialize 插件收集表单数据对象
- *  3.2 基于 axios 提交到服务器保存
- *  3.3 调用 Alert 警告框反馈结果给用户
- *  3.4 重置表单并跳转到列表页
- */
+
+
 
 /**
  * 目标4：编辑-回显文章
