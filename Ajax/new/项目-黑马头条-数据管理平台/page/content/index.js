@@ -12,7 +12,7 @@ async function setAetileList() {
       url: '/v1_0/mp/articles',
       params: queryObj
    })
-   console.log(res)
+   // console.log(res)
 
    // 1.3 展示到指定的标签结构中
    const htmlStr = res.data.results.map(item => `
@@ -42,20 +42,45 @@ async function setAetileList() {
          </td>
       </tr>
       `).join('')
-   console.log(htmlStr)
+   // console.log(htmlStr)
    document.querySelector('.art-list').innerHTML = htmlStr
 }
 setAetileList()
 
-
-
-
-
 // 目标2.筛选文章列表
 // 2.1 设置频道列表数据
+async function setChannleList() {
+   const res = await axios({
+      url: '/v1_0/channels'
+   })
+   // console.log(res)
+   const htmlStr = `<option value="" selected="">请选择文章频道</option>` + res.data.channels.map(item => `<option value="${item.id}">${item.name}</option>`).join('')
+   // console.log(htmlStr)
+   document.querySelector('.form-select').innerHTML = htmlStr
+}
+setChannleList()
 // 2.2 监听筛选条件改变，保存查询信息到查询参数对象
+// 筛选状态标记数字 change事件 绑定到查询参数对象上
+document.querySelectorAll('.form-check-input').forEach(radio => {
+   radio.addEventListener('change', e => {
+      // console.log(e.target.value)
+      queryObj.status = e.target.value
+   })
+})
+// 筛选频道id change事件 绑定到查询参数对象上
+document.querySelector('.form-select').addEventListener('change', e => {
+   // console.log(e.target.value)
+   queryObj.channel_id = e.target.value
+})
 // 2.3 点击筛选时，传递查询参数对象到服务器
-// 2.4 获取匹配数据，覆盖到页面展示
+document.querySelector('.sel-btn').addEventListener('click', () => {
+   // 2.4 获取匹配数据，覆盖到页面展示
+   setAetileList()
+})
+
+
+
+
 
 
 
