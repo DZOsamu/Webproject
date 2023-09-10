@@ -14,19 +14,36 @@ async function setChannleList() {
 // 网页运行后，默认调用一次
 setChannleList()
 
+// 2.文章封面设置
+// 2.1 准备标签结构和样式
+// 2.2 选择文件并保存在 FormData
+document.querySelector('.img-file').addEventListener('change', async e => {
+   const file = e.target.files[0]
+   const fd = new FormData()
+   fd.append('image', file)
+
+   // 2.3 单独上传图片并得到图片URL网址
+   const res = await axios({
+      url: '/v1_0/upload',
+      method: 'POST',
+      data: fd
+   })
+   console.log(res)
+
+   // 2.4 回显并切换img标签展示（隐藏+号 上传标签）
+   const imgUrl = res.data.url
+   document.querySelector('.rounded').src = imgUrl
+   document.querySelector('.rounded').classList.add('show')
+   document.querySelector('.place').classList.add('hide')
+})
+// 优化：点击img可以重新切换封面
+// 点击img 用js方式 触发 文件选择元素click事件方法
+document.querySelector('.rounded').addEventListener('click', () => {
+   document.querySelector('.img-file').click()
+})
 
 
 
-
-
-
-/**
- * 目标2：文章封面设置
- *  2.1 准备标签结构和样式
- *  2.2 选择文件并保存在 FormData
- *  2.3 单独上传图片并得到图片 URL 网址
- *  2.4 回显并切换 img 标签展示（隐藏 + 号上传标签）
- */
 
 /**
  * 目标3：发布文章保存
