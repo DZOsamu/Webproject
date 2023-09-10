@@ -1,8 +1,23 @@
-/**
- * 目标1：设置频道下拉菜单
- *  1.1 获取频道列表数据
- *  1.2 展示到下拉菜单中
- */
+// 1.设置频道下拉菜单
+// 1.1 获取频道列表数据
+async function setChannleList() {
+   const res = await axios({
+      url: '/v1_0/channels'
+   })
+   console.log(res)
+   const htmlStr = `<option value="" selected="">请选择文章频道</option>` + res.data.channels.map(item => `<option value="${item.id}">${item.name}</option>`).join('')
+   console.log(htmlStr)
+   document.querySelector('.form-select').innerHTML = htmlStr
+}
+// 网页运行后，默认调用一次
+setChannleList()
+// 1.2 展示到下拉菜单中
+
+
+
+
+
+
 
 /**
  * 目标2：文章封面设置
