@@ -25,7 +25,7 @@ async function setAetileList() {
          </td>
          <td>${item.title}</td>
          <td>
-            ${item.status === 1 ? `<span class="badge text-bg-success">审核通过</span>` : `<span   class="badge text-bg-primary">待审核</span>`}
+            ${item.status === 1 ? `<span   class="badge text-bg-primary">待审核</span>` : `<span class="badge text-bg-success">审核通过</span>`}
          </td>
          <td>
             <span>${item.pubdate}</span>
@@ -120,12 +120,18 @@ document.querySelector('.art-list').addEventListener('click', async e => {
          method: 'DELETE'
       })
       // console.log(res)
+
+      // 4.5 删除最后一页的最后一条，需要自动向前翻页
+      const children = document.querySelector('.art-list').children
+      if (children.length === 1 && queryObj.page !== 1) {
+         queryObj.page--
+         document.querySelector('.page-now').innerHTML = `第${queryObj.page}页`
+      }
+
       // 4.4 重新获取文章列表，并覆盖展示
       setAetileList()
    }
 })
-
-// 4.5 删除最后一页的最后一条，需要自动向前翻页
 
 
 // 点击编辑时，获取文章 id，跳转到发布文章页面传递文章 id 过去
