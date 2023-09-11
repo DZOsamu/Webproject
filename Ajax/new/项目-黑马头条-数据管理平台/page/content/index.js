@@ -39,7 +39,7 @@ async function setAetileList() {
          <td>
             <span>${item.like_count}</span>
          </td>
-         <td>
+         <td data-id="${item.id}">
             <i class="bi bi-pencil-square edit"></i>
             <i class="bi bi-trash3 del"></i>
          </td>
@@ -96,7 +96,6 @@ document.querySelector('.next').addEventListener('click', e => {
       setAetileList()
    }
 })
-
 // 3.3 点击上一页，做临界值判断，并切换页码参数并请求最新数据
 document.querySelector('.last').addEventListener('click', e => {
    // 当前页码小于最大页码数
@@ -107,12 +106,25 @@ document.querySelector('.last').addEventListener('click', e => {
    }
 })
 
-
 // 目标4.删除功能
-// 4.1 关联文章id到删除图标
+// 4.1 关联文章id到删除图标（42）
 // 4.2 点击删除时，获取文章id
-// 4.3 调用删除接口，传递文章id到服务器
-// 4.4 重新获取文章列表，并覆盖展示
+document.querySelector('.art-list').addEventListener('click', async e => {
+   // 判断点击的是删除元素
+   if (e.target.classList.contains('del')) {
+      const delId = e.target.parentNode.dataset.id
+      // console.log(delId)
+      // 4.3 调用删除接口，传递文章id到服务器
+      const res = await axios({
+         url: `/v1_0/mp/articles/${delId}`,
+         method: 'DELETE'
+      })
+      // console.log(res)
+      // 4.4 重新获取文章列表，并覆盖展示
+      setAetileList()
+   }
+})
+
 // 4.5 删除最后一页的最后一条，需要自动向前翻页
 
 
