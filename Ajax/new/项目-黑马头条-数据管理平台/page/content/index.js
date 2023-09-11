@@ -6,6 +6,9 @@ const queryObj = {
    page: 1,   // 当前页码
    per_page: 2   // 当前页面条数
 }
+// 保存文章总条数
+let totalCount = 0
+
 async function setAetileList() {
    // 1.2 获取文章列表数据
    const res = await axios({
@@ -44,6 +47,10 @@ async function setAetileList() {
       `).join('')
    // console.log(htmlStr)
    document.querySelector('.art-list').innerHTML = htmlStr
+
+   // 3.1 保存并设置文章总条数
+   totalCount = res.data.total_count
+   document.querySelector('.total-count').innerHTML = `共 ${totalCount} 条`
 }
 setAetileList()
 
@@ -78,17 +85,27 @@ document.querySelector('.sel-btn').addEventListener('click', () => {
    setAetileList()
 })
 
-
-
-
-
-
-
 // 目标3.分页功能
-// 3.1 保存并设置文章总条数
+// 3.1 保存并设置文章总条数（51-53）
 // 3.2 点击下一页，做临界值判断，并切换页码参数并请求最新数据
-// 3.3 点击上一页，做临界值判断，并切换页码参数并请求最新数据
+document.querySelector('.next').addEventListener('click', e => {
+   // 当前页码小于最大页码数
+   if (queryObj.page < Math.ceil(totalCount / queryObj.per_page)) {
+      queryObj.page++
+      document.querySelector('.page-now').innerHTML = `第${queryObj.page}页`
+      setAetileList()
+   }
+})
 
+// 3.3 点击上一页，做临界值判断，并切换页码参数并请求最新数据
+document.querySelector('.last').addEventListener('click', e => {
+   // 当前页码小于最大页码数
+   if (queryObj.page > 1) {
+      queryObj.page--
+      document.querySelector('.page-now').innerHTML = `第${queryObj.page}页`
+      setAetileList()
+   }
+})
 
 
 // 目标4.删除功能
