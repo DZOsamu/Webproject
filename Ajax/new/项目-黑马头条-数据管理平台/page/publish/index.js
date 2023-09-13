@@ -45,6 +45,9 @@ document.querySelector('.rounded').addEventListener('click', () => {
 // 3.发布文章保存
 // 3.1 基于form-serialize插件收集表单数据对象
 document.querySelector('.send').addEventListener('click', async e => {
+   // 按钮是同一个 需要判断当前事件是‘发布’还是‘修改’
+   if (e.target.innerHTML !== '发布') return
+
    const form = document.querySelector('.art-form')
    const data = serialize(form, { hash: true, empty: true })
    // console.log(data)
@@ -132,16 +135,40 @@ document.querySelector('.send').addEventListener('click', async e => {
                   editor.setHtml(dataObj[key])
                } else {
                   // 用数据对象属性名作为标签name属性选择器值来找对应的标签
-                  document.querySelector(`[name=${key}]`).value =  dataObj[key]
+                  document.querySelector(`[name=${key}]`).value = dataObj[key]
                }
             })
          }
       })
    })();
 
-
-
 // 5.编辑-保存文章
-// 5.1 判断按钮文字，区分业务（因为共用一套表单）
-// 5.2 调用编辑文章接口，保存信息到服务器
-// 5.3 基于 Alert 反馈结果消息给用户
+document.querySelector('.send').addEventListener('click', async e => {
+   // 5.1 判断按钮文字，区分业务（因为共用一套表单）
+   if (e.target.innerHTML !== '修改') return
+   // 修改文章逻辑
+   const form = document.querySelector('.art-form')
+   const data = serialize(form, { hash: true, empty: true })
+   // console.log(data)
+
+   // 5.2 调用编辑文章接口，保存信息到服务器
+   try {
+      const res = await axios({
+         url: `/v1_0/mp/articles/${data.id}`,
+         method: 'PUT',
+         data: {
+            ...data,
+            cover: {
+               type: document.querySelector('.rounded').src ? 1 : 0,
+               images: [document.querySelector('.rounded').src]
+            }
+         }
+      })
+      console.log(res)
+      // 5.3 基于 Alert 反馈结果消息给用户
+      myAlert(true, '修改文章成功')
+   } catch (error) {
+      myAlert(false, error.response.data.message)
+   }
+
+})
