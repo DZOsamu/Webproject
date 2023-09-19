@@ -32,3 +32,8 @@ document.querySelector('.btn').addEventListener('click', () => {
    console.log('提交到服务器')
 })
 // 3.3 打包并手动复制网页到dist下 引入打包后的js 运行
+
+// 4.使用html-webpack-plugin插件生成html网页文件，并引入打包后的其他资源
+// 4.1 下载html-webpack-plugin本地软件包 npm i html-webpack-plugin --save-dev
+// 4.2 配置webpack.config.js让webpack拥有插件功能
+// 4.3 重新打包观察结果
