@@ -8,11 +8,11 @@ const path = require('path')
 
 module.exports = {
    // 入口
-   entry: path.resolve(__dirname, 'src/login/index01.js'),
+   entry: path.resolve(__dirname, 'src/login/index.js'),
    // 出口
    output: {
       path: path.resolve(__dirname, 'dist'),
-      filename: './login/index01.js',
-      // clean: true   //生成打包的内容之前，先清空输出目录
+      filename: './login/index.js',
+      clean: true   //生成打包的内容之前，先清空输出目录
    }
 }
