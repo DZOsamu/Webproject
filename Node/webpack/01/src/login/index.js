@@ -35,5 +35,16 @@ document.querySelector('.btn').addEventListener('click', () => {
 
 // 4.使用html-webpack-plugin插件生成html网页文件，并引入打包后的其他资源
 // 4.1 下载html-webpack-plugin本地软件包 npm i html-webpack-plugin --save-dev
-// 4.2 配置webpack.config.js让webpack拥有插件功能
+// 4.2 配置webpack.config.js让webpack拥有插件功能（webpack.config.js 20-25）
 // 4.3 重新打包观察结果
+
+// 5打包css代码
+// 5.1 准备css代码 并引入到js中
+// 下载bootstrap第三方软件包 npm i bootstrap
+import 'bootstrap/dist/css/bootstrap.min.css'
+import './index.css'
+// 将css一并引入过来让webpack处理，且接收的css对象在下面用不到，所以可以省略变量和from的书写
+
+// 5.2 下载css-loader和style-loader本地软件包 npm i html-webpack-plugin --save-dev
+// 5.3 配置webpack.config.js让webpack拥有加载器功能（webpack.config.js 28-37）
+// 5.4 打包观察结果
