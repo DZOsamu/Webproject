@@ -35,7 +35,7 @@ document.querySelector('.btn').addEventListener('click', () => {
 
 // 4.使用html-webpack-plugin插件生成html网页文件，并引入打包后的其他资源
 // 4.1 下载html-webpack-plugin本地软件包 npm i html-webpack-plugin --save-dev
-// 4.2 配置webpack.config.js让webpack拥有插件功能（webpack.config.js 8,20-25）
+// 4.2 配置webpack.config.js让webpack拥有插件功能（webpack.config.js）
 // 4.3 重新打包观察结果
 
 // 5打包css代码
@@ -46,10 +46,22 @@ import './index.css'
 // 将css一并引入过来让webpack处理，且接收的css对象在下面用不到，所以可以省略变量和from的书写
 
 // 5.2 下载css-loader和style-loader本地软件包 npm i css-loader style-loader --save-dev
-// 5.3 配置webpack.config.js让webpack拥有加载器功能（webpack.config.js 28-37）
+// 5.3 配置webpack.config.js让webpack拥有加载器功能（webpack.config.js）
 // 5.4 打包观察结果
 
 // 6.优化 提取css代码到单独的css文件中
 // 6.1 下载mini-css-extract-plugin本地软件包 npm i mini-css-extract-plugin --save-dev
-// 6.2 配置webpack.config.js让webpack拥有插件功能（webpack.config.js 9,）
+// 6.2 配置webpack.config.js让webpack拥有插件功能（webpack.config.js）
 // 6.3 打包观察结果
+
+// 7.优化 压缩css代码
+// 7.1 下载css-minimizer-webpack-plugin本地软件包 npm i css-minimizer-webpack-plugin --save-dev
+// 7.2 配置webpack.config.js让webpack拥有插件功能（webpack.config.js）
+// 7.3 打包观察结果
+
+// 8.打包less代码
+// 8.1 新建less代码（设置背景图）并引入到src/login/index.js中
+import './index.less'
+// 8.2 下载less和less-loader本地软件包 npm i less less-loader --save-dev
+// 8.3 配置webpack.config.js让webpack拥有功能（webpack.config.js）
+// 8.4 打包观察结果
