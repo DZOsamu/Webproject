@@ -6,6 +6,7 @@
 
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
    // 入口
@@ -21,7 +22,8 @@ module.exports = {
       new HtmlWebpackPlugin({
          template: path.resolve(__dirname, 'public/login.html'),   // 模板文件
          filename: path.resolve(__dirname, 'dist/login/index.html')   // 输出文件
-      })
+      }),
+      new MiniCssExtractPlugin()   // 生成css文件
    ],
 
    // 加载器 让webpack识别更多模块文件的内容
@@ -29,7 +31,8 @@ module.exports = {
       rules: [
          {
             test: /\.css$/i,
-            use: ["style-loader", "css-loader"]
+            // use: ["style-loader", "css-loader"]
+            use: [MiniCssExtractPlugin.loader, "css-loader"]
          }
 
       ]
