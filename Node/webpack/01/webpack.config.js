@@ -10,7 +10,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const webpack = require('webpack')
 
-module.exports = {
+const config = {
    // 打包模式 配置对象方式（development 开发模式-使用相关内置优化）
    // mode: 'development',
 
@@ -72,3 +72,8 @@ module.exports = {
       ]
    }
 }
+// 开发环境下使用source-map选项
+if(process.env.NODE_ENV === 'development') {
+   config.devtool = 'inline-source-map'
+}
+module.exports = config

@@ -143,3 +143,10 @@ if (process.env.NODE_ENV === 'production') {
    console.log = function () { }
 }
 console.log('开发模式下好用，生产模式下失效')
+
+// 15.source-map调试代码
+// 问题：error和warning代码的位置和源代码对不上，不方便试
+// 解决：启动webpack的source-map资源地图功能
+// 15.1 在webpack.config.js配置devtool选项和值开启功能（注意: 只在开发环境下使用）
+// 15.2 代码中造成错误，并在开发服务器环境下查看效果
+consolee.warning('123')
