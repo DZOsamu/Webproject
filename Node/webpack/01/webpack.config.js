@@ -10,6 +10,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 
 module.exports = {
+   // 打包模式 development 开发模式-使用相关内置优化
+   mode: 'development',
    // 入口
    entry: path.resolve(__dirname, 'src/login/index.js'),
    // 出口
