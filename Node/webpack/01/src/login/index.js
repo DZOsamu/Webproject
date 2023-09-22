@@ -128,3 +128,18 @@ console.log('观察页面')
 // 设置方式:
 // （1）mode 选项设置
 // （2）--mode= 命令行设置（优先级高）
+
+// 13.webpack环境下区分两种模式
+// 开发模式：style-loader内嵌css代码在js中，让热替换更快
+// 生产模式：提取css代码，让浏览器缓存和并行下载js和css文件
+// 13.1 下载cross-env软件包到当前项目中
+// 13.2 配置自定义命令，传入参数名和值到process.env对象上（它是Node.js环境变量）
+// 13.3 在webpack.config.js调用使用做判断区分
+// 13.4 重新打包观察两种模式区别
+
+// 14.前端-注入环境变量
+// 需求：前端项目代码中，开发模式下打印语句生效，生产模式下打印语句失效
+if (process.env.NODE_ENV === 'production') {
+   console.log = function () { }
+}
+console.log('开发模式下好用，生产模式下失效')
