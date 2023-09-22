@@ -65,3 +65,12 @@ import './index.less'
 // 8.2 下载less和less-loader本地软件包 npm i less less-loader --save-dev
 // 8.3 配置webpack.config.js让webpack拥有功能（webpack.config.js）
 // 8.4 打包观察结果
+
+// 9.打包资源模块（图片处理）
+// 9.1 创建img标签并动态添加到页面 配置webpack.config.js
+// 9.2 打包后观察结果
+// 注意：js中引入本地图片资源需要用import方式加载，如果是网络图片http地址，字符串可以直接写
+import imgObj from './assets/logo.png'
+const theImg = document.createElement('img')
+theImg.src = imgObj
+document.querySelector('.login-wrap').appendChild(theImg)
