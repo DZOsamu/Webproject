@@ -28,7 +28,7 @@ module.exports = {
          filename: path.resolve(__dirname, 'dist/login/index.html')   // 输出文件
       }),
       new MiniCssExtractPlugin({
-         filename:'./login/index.css'
+         filename: './login/index.css'
       })   // 生成css文件
    ],
    // 加载器 让webpack识别更多模块文件的内容
@@ -37,14 +37,14 @@ module.exports = {
          {
             test: /\.css$/i,
             // use: ["style-loader", "css-loader"]
-            use: [MiniCssExtractPlugin.loader, "css-loader"]
+            use: [process.env.NODE_ENV === 'development' ? 'style-loader' : MiniCssExtractPlugin.loader, "css-loader"]
          },
          {
             test: /\.less$/i,
             use: [
                // compiles Less to CSS
                // "style-loader",   不能和MiniCssExtractPlugin混用
-               MiniCssExtractPlugin.loader,
+               process.env.NODE_ENV === 'development' ? 'style-loader' : MiniCssExtractPlugin.loader,
                "css-loader",
                "less-loader"
             ]
