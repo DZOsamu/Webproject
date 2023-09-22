@@ -121,3 +121,10 @@ document.querySelector('.btn').addEventListener('click', () => {
 // 注意2：默认以public文件夹作为服务器根目录
 // 注意3：webpack-dev-server 根据配置，打包相关代码在内存当中，以output.path的值作为服务器根目录（所以可以直接自己拼接访问dist目录下内容)
 console.log('观察页面')
+
+// 12.打包模式设置
+// development：调试代码，实时加载，模块热替换（快）
+// production：压缩代码，资源优化，更轻量等（小）
+// 设置方式:
+// （1）mode 选项设置
+// （2）--mode= 命令行设置（优先级高）
