@@ -70,10 +70,17 @@ const config = {
          `...`,
          new CssMinimizerPlugin()
       ]
+   },
+   // 解析别名
+   resolve: {
+      // 别名
+      alias: {
+         '@': path.resolve(__dirname, 'src')
+      }
    }
 }
 // 开发环境下使用source-map选项
-if(process.env.NODE_ENV === 'development') {
+if (process.env.NODE_ENV === 'development') {
    config.devtool = 'inline-source-map'
 }
 module.exports = config

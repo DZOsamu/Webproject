@@ -162,4 +162,12 @@ console.log('开发模式下好用，生产模式下失效')
 // 解决：启动webpack的source-map资源地图功能
 // 15.1 在webpack.config.js配置devtool选项和值开启功能（注意: 只在开发环境下使用）
 // 15.2 代码中造成错误，并在开发服务器环境下查看效果
-consolee.warning('123')
+// console.warn('123')
+
+
+// 16.路径解析别名设置
+// 作用：使用绝对路径 让前端代码引入路径更加简单
+// 16.1 在webpack.config.js配置resolve.alias选项
+// 16.2 在代码中尝试，并在开发环境和生产环境下查看效果
+import youAxios from '@/utils/request.js'
+console.log(youAxios)
