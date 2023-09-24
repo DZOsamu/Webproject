@@ -171,3 +171,9 @@ console.log('开发模式下好用，生产模式下失效')
 // 16.2 在代码中尝试，并在开发环境和生产环境下查看效果
 import youAxios from '@/utils/request.js'
 console.log(youAxios)
+
+
+// 17.第三方库使用CDN加载引入
+// 17.1在htm1中引入第三方库的CDN地址并用模板语法判断
+// 17.2 配置webpack.config.js中externals外部扩展选项（防止某些import的包被打包）
+// 17.3 两种模式下打包观察效果
