@@ -113,8 +113,10 @@ document.querySelector('.btn').addEventListener('click', () => {
          mobile: phone,
          code: code
       }
-   }).then(() => {
+   }).then(res => {
       myAlert(true, '登录成功')
+      localStorage.setItem('token', res.data.token)
+      location.href = '../content/index.html'
    }).catch(error => {
       myAlert(false, error.response.data.message)
    })
@@ -174,6 +176,13 @@ console.log(youAxios)
 
 
 // 17.第三方库使用CDN加载引入
-// 17.1在htm1中引入第三方库的CDN地址并用模板语法判断
+// 17.1 在htm1中引入第三方库的CDN地址并用模板语法判断
 // 17.2 配置webpack.config.js中externals外部扩展选项（防止某些import的包被打包）
 // 17.3 两种模式下打包观察效果
+
+
+// 18.第三方库使用CDN加载引入
+// 18.1 准备源码（html，cs，js）放入相应位置，并改用模块化语法导出
+// 18.2 下载form-serialize包并导入到核心代码中使用
+// 18.3 配置webpack.config.js多入口和多页面的设置
+// 18.4 重新打包观察效果

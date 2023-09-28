@@ -15,11 +15,15 @@ const config = {
    // mode: 'development',
 
    // 入口
-   entry: path.resolve(__dirname, 'src/login/index.js'),
+   // entry: path.resolve(__dirname, 'src/login/index.js'),
+   entry: {
+      'login': path.resolve(__dirname, 'src/login/index.js'),
+      'content': path.resolve(__dirname, 'src/content/index.js')
+   },
    // 出口
    output: {
       path: path.resolve(__dirname, 'dist'),
-      filename: './login/index.js',
+      filename: './[name]/index.js',
       clean: true   //生成打包的内容之前，先清空输出目录
    },
    // 插件 给webpack提供更多功能
@@ -27,10 +31,17 @@ const config = {
       new HtmlWebpackPlugin({
          template: path.resolve(__dirname, 'public/login.html'),   // 模板文件
          filename: path.resolve(__dirname, 'dist/login/index.html'),   // 输出文件
-         useCdn:process.env.NODE_ENV === 'production'   // 生产模式下使用cdn引入的地址
+         useCdn: process.env.NODE_ENV === 'production',   // 生产模式下使用cdn引入的地址
+         chunks:['login']   // 引入哪些打包后的模块（和entry的key一致）
+      }),
+      new HtmlWebpackPlugin({
+         template: path.resolve(__dirname, 'public/content.html'),   // 模板文件
+         filename: path.resolve(__dirname, 'dist/content/index.html'),   // 输出文件
+         useCdn: process.env.NODE_ENV === 'production',   // 生产模式下使用cdn引入的地址
+         chunks:['content']
       }),
       new MiniCssExtractPlugin({
-         filename: './login/index.css'
+         filename: './[name]/index.css'
       }),   // 生成css文件
       new webpack.DefinePlugin({
          'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
@@ -86,12 +97,12 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 // 生产环境下使用相关配置
-if(process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'production') {
    config.externals = {
       // key：import from 语句后面的字符串
       // value：留在原地的全局变量（最好和cdn在全局暴露的变量一致）
-      'bootstrap/dist/css/bootstrap.min.css':'bootstrap',
-      'axios':'axios'
+      'bootstrap/dist/css/bootstrap.min.css': 'bootstrap',
+      'axios': 'axios'
    }
 }
 
