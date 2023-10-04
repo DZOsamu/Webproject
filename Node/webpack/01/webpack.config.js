@@ -89,7 +89,22 @@ const config = {
          // 在webpack@5中，可以使用`...`语法来扩展现有的minimizer（即`terser-webpack-plugin`），将下一行取消注释（保证js代码还能压缩）
          `...`,
          new CssMinimizerPlugin()
-      ]
+      ],
+      // 代码分割
+      splitChunks: {
+         chunks: 'all',   // 所以模块动态非动态移入的都分割分析
+         cacheGroups: {   // 分隔组
+            commons: {   // 抽取公共模块
+               minSize: 0,   // 抽取的chunk最小大小字节
+               minChunks: 2,   // 最小引用数
+               reuseExistingChunk: true,   // 当前chunk包含已从主bundle中拆分出的模块，则它将被重用
+               name(module, chunks, cacheGroups) {   // 分离出模块文件名
+                  const allChunksName = chunks.map((item) => item.name).join('~')   // 模块名1~模块名2
+                  return `./js/${allChunksName}`   // 输出到dist目录下位置
+               }
+            }
+         }
+      },
    },
    // 解析别名
    resolve: {
