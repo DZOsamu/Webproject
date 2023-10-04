@@ -9,6 +9,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const webpack = require('webpack')
+const { serialize } = require('v8')
 
 const config = {
    // 打包模式 配置对象方式（development 开发模式-使用相关内置优化）
@@ -18,7 +19,8 @@ const config = {
    // entry: path.resolve(__dirname, 'src/login/index.js'),
    entry: {
       'login': path.resolve(__dirname, 'src/login/index.js'),
-      'content': path.resolve(__dirname, 'src/content/index.js')
+      'content': path.resolve(__dirname, 'src/content/index.js'),
+      'publish': path.resolve(__dirname, 'src/publish/index.js')
    },
    // 出口
    output: {
@@ -32,13 +34,19 @@ const config = {
          template: path.resolve(__dirname, 'public/login.html'),   // 模板文件
          filename: path.resolve(__dirname, 'dist/login/index.html'),   // 输出文件
          useCdn: process.env.NODE_ENV === 'production',   // 生产模式下使用cdn引入的地址
-         chunks:['login']   // 引入哪些打包后的模块（和entry的key一致）
+         chunks: ['login']   // 引入哪些打包后的模块（和entry的key一致）
       }),
       new HtmlWebpackPlugin({
          template: path.resolve(__dirname, 'public/content.html'),   // 模板文件
          filename: path.resolve(__dirname, 'dist/content/index.html'),   // 输出文件
          useCdn: process.env.NODE_ENV === 'production',   // 生产模式下使用cdn引入的地址
-         chunks:['content']
+         chunks: ['content']
+      }),
+      new HtmlWebpackPlugin({
+         template: path.resolve(__dirname, 'public/publish.html'),   // 模板文件
+         filename: path.resolve(__dirname, 'dist/publish/index.html'),   // 输出文件
+         useCdn: process.env.NODE_ENV === 'production',   // 生产模式下使用cdn引入的地址
+         chunks: ['publish']
       }),
       new MiniCssExtractPlugin({
          filename: './[name]/index.css'
@@ -102,7 +110,9 @@ if (process.env.NODE_ENV === 'production') {
       // key：import from 语句后面的字符串
       // value：留在原地的全局变量（最好和cdn在全局暴露的变量一致）
       'bootstrap/dist/css/bootstrap.min.css': 'bootstrap',
-      'axios': 'axios'
+      'axios': 'axios',
+      'form-serialize': 'serialize',
+      '@wangeditor/editor': 'wangEditor'
    }
 }
 
