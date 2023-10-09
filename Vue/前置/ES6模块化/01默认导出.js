@@ -6,3 +6,7 @@ export default {
    n1,
    show
 }
+
+// export default {
+//    n2
+// }
