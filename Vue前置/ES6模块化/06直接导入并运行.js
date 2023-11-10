@@ -1,0 +1,1 @@
+import './05test.js'
